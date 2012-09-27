@@ -21,6 +21,21 @@ algorithm_fold2.output
 algorithm_fold3.output
 algorithm_fold4.output
 algorithm_fold5.output
+
+For algorithms that use item-based prediction, the item_attributes follows the following convenction:
+file_name1.item
+file_name2.item
+file_name3.item
+file_name4.item
+file_name5.item
+
+
+For algorithms that use user-based prediction, the user_attributes follows the following convenction:
+file_name1.user
+file_name2.user
+file_name3.user
+file_name4.user
+file_name5.user
 """
 
 #TODO(arthur): adicionar parametros para o user_attributes_file e o
@@ -33,6 +48,8 @@ def Usage():
   print '-i (required): input folder.'
   print '-f (required): file name'
   print '-o (required): output_folder'
+  print '-u (optional): user_attributes_file'
+  print '-t (optional): item_attributes_file'
   print 'Example usage:'
   print '%s ' % sys.argv[0]
   quit()
@@ -48,6 +65,8 @@ def main():
   test_dir = None
   file_name = None
   output_dir = None
+  user_attributes_file = None
+  item_attributes_file = None
   algorithms = ['BiPolarSlopeOne', 'FactorWiseMatrixFactorization',
   'GlobalAverage', 'ItemAttributeKNN', 'ItemAverage', 'ItemKNN',
   'MatrixFactorization', 'SlopeOne', 'UserAttributeKNN', 'UserAverage',
@@ -78,9 +97,11 @@ def main():
       train_file = '%s/%s%d.train' % (input_dir, file_name, i)
       test_file = '%s/%s%d.test' % (input_dir, file_name, i)
       output_file = '%s/%s_fold%d.output' % (output_dir, algorithm, i)
+      item_attributes_file = '%s/%s%d.item' % (input_dir, file_name, i)
+      user_attributes_file = '%s%s%d.user' % (input_dir, file_nane, i)
       cmd = ('rating_prediction --training-file=%s --test-file=%s\
- --recommender=%s --prediction-file=%s' %
-             (train_file, test_file, algorithm, output_file))
+ --recommender=%s --prediction-file=%s --user-attributes=%s item-attributes=%s --file-format=movielens_1m'%
+             (train_file, test_file, algorithm, output_file, user_attributes_file, item_attributes_file))
       # TODO(arthur): trocar print pro os.system(cmd) e ver se funciona
       print cmd
 
