@@ -92,20 +92,30 @@ def main():
     Usage()
 
   for algorithm in algorithms:
+    
+    print "************************************"      
     print 'Running for %s' % algorithm
-    for i in range(1,6):
+    for i in range(1,5):
       train_file = '%s/%s%d.train' % (input_dir, file_name, i)
       test_file = '%s/%s%d.test' % (input_dir, file_name, i)
       output_file = '%s/%s_fold%d.output' % (output_dir, algorithm, i)
       item_attributes_file = '%s/%s%d.item' % (input_dir, file_name, i)
-      user_attributes_file = '%s%s%d.user' % (input_dir, file_nane, i)
-      cmd = ('rating_prediction --training-file=%s --test-file=%s\
- --recommender=%s --prediction-file=%s --user-attributes=%s item-attributes=%s --file-format=movielens_1m'%
-             (train_file, test_file, algorithm, output_file, user_attributes_file, item_attributes_file))
+      user_attributes_file = '%s/%s%d.user' % (input_dir, file_name, i)
+      if algorithm == "ItemAttributeKNN" or algorithm == "NaiveBayes":
+        cmd = ('rating_prediction --training-file=%s --test-file=%s\
+  --recommender=%s --prediction-file=%s item-attributes=%s --file-format=movielens_1m'%
+               (train_file, test_file, algorithm, output_file, item_attributes_file))
+      elif algorithm == "UserAttributeKNN":
+        cmd = ('rating_prediction --training-file=%s --test-file=%s\
+  --recommender=%s --prediction-file=%s --user-attributes=%s --file-format=movielens_1m'%
+               (train_file, test_file, algorithm, output_file, user_attributes_file, ))
+      else:
+        cmd = ('rating_prediction --training-file=%s --test-file=%s\
+  --recommender=%s --prediction-file=%s --file-format=movielens_1m'%
+              (train_file, test_file, algorithm, output_file))
       
       # TODO(arthur): trocar print pro os.system(cmd) e ver se funciona
-      print cmd
-
+      os.system(cmd)
 
 
 if __name__ == '__main__':
