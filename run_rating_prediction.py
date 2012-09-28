@@ -22,7 +22,7 @@ algorithm_fold3.output
 algorithm_fold4.output
 algorithm_fold5.output
 
-For algorithms that use item-based prediction, the item_attributes follows the following convenction:
+For algorithms that use item-based prediction, the item_attributes uses the following convenction:
 file_name1.item
 file_name2.item
 file_name3.item
@@ -30,7 +30,7 @@ file_name4.item
 file_name5.item
 
 
-For algorithms that use user-based prediction, the user_attributes follows the following convenction:
+For algorithms that use user-based prediction, the user_attributes uses the following convenction:
 file_name1.user
 file_name2.user
 file_name3.user
@@ -102,6 +102,7 @@ def main():
       cmd = ('rating_prediction --training-file=%s --test-file=%s\
  --recommender=%s --prediction-file=%s --user-attributes=%s item-attributes=%s --file-format=movielens_1m'%
              (train_file, test_file, algorithm, output_file, user_attributes_file, item_attributes_file))
+      
       # TODO(arthur): trocar print pro os.system(cmd) e ver se funciona
       print cmd
 
