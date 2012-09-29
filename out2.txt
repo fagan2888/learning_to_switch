@@ -1,0 +1,463 @@
+training data: 4813 users, 3682 items, 800168 ratings, sparsity 95.48475
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1228 users, 3463 items, 200041 ratings, sparsity 95.29599
+rating period: 11/22/2000 21:59:26 to 02/28/2003 02:31:15
+BiPolarSlopeOne  training_time 00:04:39.0662330 RMSE 1.12324 MAE 0.93764 NMAE 0.23441 CBD 0.2836 new users: RMSE 1.1233 MAE 0.93772 CBD 0.28362 new items: RMSE 1.54888 MAE 1.28694 CBD 0.34161  new users and items: RMSE 1.54888 MAE 1.28694 CBD 0.34161 testing_time 00:00:00.3425790
+
+training data: 4888 users, 3660 items, 800168 ratings, sparsity 95.52731
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1154 users, 3511 items, 200041 ratings, sparsity 95.06278
+rating period: 11/16/2000 23:40:41 to 02/27/2003 08:15:05
+BiPolarSlopeOne  training_time 00:04:32.8712930 RMSE 1.12784 MAE 0.9407 NMAE 0.23517 CBD 0.28398 new users: RMSE 1.12801 MAE 0.94088 CBD 0.284 new items: RMSE 1.60411 MAE 1.39822 CBD 0.36446  new users and items: RMSE 1.60411 MAE 1.39822 CBD 0.36446 testing_time 00:00:00.3247880
+
+training data: 4772 users, 3686 items, 800168 ratings, sparsity 95.4509
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1270 users, 3436 items, 200041 ratings, sparsity 95.41581
+rating period: 08/17/2000 23:10:51 to 02/28/2003 03:51:39
+BiPolarSlopeOne  training_time 00:04:52.7335740 RMSE 1.10931 MAE 0.92806 NMAE 0.23201 CBD 0.28115 new users: RMSE 1.10962 MAE 0.92851 CBD 0.28119 new items: RMSE 1.64635 MAE 1.37762 CBD 0.32576  new users and items: RMSE 1.64635 MAE 1.37762 CBD 0.32576 testing_time 00:00:00.4512720
+
+training data: 4896 users, 3680 items, 800168 ratings, sparsity 95.55889
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1146 users, 3477 items, 200041 ratings, sparsity 94.9797
+rating period: 07/08/2000 18:42:45 to 02/28/2003 01:00:12
+BiPolarSlopeOne  training_time 00:04:33.2266900 RMSE 1.11008 MAE 0.92699 NMAE 0.23175 CBD 0.28343 new users: RMSE 1.11043 MAE 0.9274 CBD 0.28349 new items: RMSE 1.29872 MAE 1.03332 CBD 0.32447  new users and items: RMSE 1.29872 MAE 1.03332 CBD 0.32447 testing_time 00:00:00.4917640
+
+training data: 4813 users, 3682 items, 800168 ratings, sparsity 95.48475
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1228 users, 3463 items, 200041 ratings, sparsity 95.29599
+rating period: 11/22/2000 21:59:26 to 02/28/2003 02:31:15
+FactorWiseMatrixFactorization num_factors=10 shrinkage=25 sensibility=1E-05 num_iter=10 reg_u=15 reg_i=10  training_time 00:02:41.3111320 RMSE 0.98607 MAE 0.78243 NMAE 0.19561 CBD 0.26637 new users: RMSE 0.98611 MAE 0.78245 CBD 0.26639 new items: RMSE 1.54888 MAE 1.28694 CBD 0.34161  new users and items: RMSE 1.54888 MAE 1.28694 CBD 0.34161 testing_time 00:00:00.3281050
+
+training data: 4888 users, 3660 items, 800168 ratings, sparsity 95.52731
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1154 users, 3511 items, 200041 ratings, sparsity 95.06278
+rating period: 11/16/2000 23:40:41 to 02/27/2003 08:15:05
+FactorWiseMatrixFactorization num_factors=10 shrinkage=25 sensibility=1E-05 num_iter=10 reg_u=15 reg_i=10  training_time 00:02:30.8121290 RMSE 0.98353 MAE 0.78222 NMAE 0.19556 CBD 0.26582 new users: RMSE 0.98363 MAE 0.78231 CBD 0.26582 new items: RMSE 1.60411 MAE 1.39822 CBD 0.36446  new users and items: RMSE 1.60411 MAE 1.39822 CBD 0.36446 testing_time 00:00:00.3342160
+
+training data: 4772 users, 3686 items, 800168 ratings, sparsity 95.4509
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1270 users, 3436 items, 200041 ratings, sparsity 95.41581
+rating period: 08/17/2000 23:10:51 to 02/28/2003 03:51:39
+FactorWiseMatrixFactorization num_factors=10 shrinkage=25 sensibility=1E-05 num_iter=10 reg_u=15 reg_i=10  training_time 00:02:38.2170530 RMSE 0.98245 MAE 0.77813 NMAE 0.19453 CBD 0.26524 new users: RMSE 0.98274 MAE 0.77839 CBD 0.26528 new items: RMSE 1.64635 MAE 1.37762 CBD 0.32576  new users and items: RMSE 1.64635 MAE 1.37762 CBD 0.32576 testing_time 00:00:00.3316460
+
+training data: 4896 users, 3680 items, 800168 ratings, sparsity 95.55889
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1146 users, 3477 items, 200041 ratings, sparsity 94.9797
+rating period: 07/08/2000 18:42:45 to 02/28/2003 01:00:12
+FactorWiseMatrixFactorization num_factors=10 shrinkage=25 sensibility=1E-05 num_iter=10 reg_u=15 reg_i=10  training_time 00:03:09.9034900 RMSE 0.97708 MAE 0.77798 NMAE 0.19449 CBD 0.2668 new users: RMSE 0.9773 MAE 0.77821 CBD 0.26685 new items: RMSE 1.29872 MAE 1.03332 CBD 0.32447  new users and items: RMSE 1.29872 MAE 1.03332 CBD 0.32447 testing_time 00:00:00.3571090
+
+training data: 4813 users, 3682 items, 800168 ratings, sparsity 95.48475
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1228 users, 3463 items, 200041 ratings, sparsity 95.29599
+rating period: 11/22/2000 21:59:26 to 02/28/2003 02:31:15
+GlobalAverage  training_time 00:00:00.0228360 RMSE 1.12331 MAE 0.93773 NMAE 0.23443 CBD 0.28361 new users: RMSE 1.1233 MAE 0.93772 CBD 0.28362 new items: RMSE 1.54888 MAE 1.28694 CBD 0.34161  new users and items: RMSE 1.54888 MAE 1.28694 CBD 0.34161 testing_time 00:00:00.2984490
+
+training data: 4888 users, 3660 items, 800168 ratings, sparsity 95.52731
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1154 users, 3511 items, 200041 ratings, sparsity 95.06278
+rating period: 11/16/2000 23:40:41 to 02/27/2003 08:15:05
+GlobalAverage  training_time 00:00:00.0229050 RMSE 1.12792 MAE 0.94081 NMAE 0.2352 CBD 0.28399 new users: RMSE 1.12801 MAE 0.94088 CBD 0.284 new items: RMSE 1.60411 MAE 1.39822 CBD 0.36446  new users and items: RMSE 1.60411 MAE 1.39822 CBD 0.36446 testing_time 00:00:00.3066640
+
+training data: 4772 users, 3686 items, 800168 ratings, sparsity 95.4509
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1270 users, 3436 items, 200041 ratings, sparsity 95.41581
+rating period: 08/17/2000 23:10:51 to 02/28/2003 03:51:39
+GlobalAverage  training_time 00:00:00.0228340 RMSE 1.1097 MAE 0.92856 NMAE 0.23214 CBD 0.2812 new users: RMSE 1.10962 MAE 0.92851 CBD 0.28119 new items: RMSE 1.64635 MAE 1.37762 CBD 0.32576  new users and items: RMSE 1.64635 MAE 1.37762 CBD 0.32576 testing_time 00:00:00.3070610
+
+training data: 4896 users, 3680 items, 800168 ratings, sparsity 95.55889
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1146 users, 3477 items, 200041 ratings, sparsity 94.9797
+rating period: 07/08/2000 18:42:45 to 02/28/2003 01:00:12
+GlobalAverage  training_time 00:00:00.0228780 RMSE 1.1104 MAE 0.9274 NMAE 0.23185 CBD 0.28347 new users: RMSE 1.11043 MAE 0.9274 CBD 0.28349 new items: RMSE 1.29872 MAE 1.03332 CBD 0.32447  new users and items: RMSE 1.29872 MAE 1.03332 CBD 0.32447 testing_time 00:00:00.3062040
+
+training data: 4813 users, 3682 items, 800168 ratings, sparsity 95.48475
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1228 users, 3463 items, 200041 ratings, sparsity 95.29599
+rating period: 11/22/2000 21:59:26 to 02/28/2003 02:31:15
+ItemAverage  training_time 00:00:00.0878050 RMSE 0.98111 MAE 0.78347 NMAE 0.19587 CBD 0.26582 new users: RMSE 0.98114 MAE 0.78347 CBD 0.26584 new items: RMSE 1.54888 MAE 1.28694 CBD 0.34161  new users and items: RMSE 1.54888 MAE 1.28694 CBD 0.34161 testing_time 00:00:00.3171650
+
+training data: 4888 users, 3660 items, 800168 ratings, sparsity 95.52731
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1154 users, 3511 items, 200041 ratings, sparsity 95.06278
+rating period: 11/16/2000 23:40:41 to 02/27/2003 08:15:05
+ItemAverage  training_time 00:00:00.0767350 RMSE 0.97851 MAE 0.78305 NMAE 0.19576 CBD 0.26525 new users: RMSE 0.97863 MAE 0.78316 CBD 0.26526 new items: RMSE 1.60411 MAE 1.39822 CBD 0.36446  new users and items: RMSE 1.60411 MAE 1.39822 CBD 0.36446 testing_time 00:00:00.3195900
+
+training data: 4772 users, 3686 items, 800168 ratings, sparsity 95.4509
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1270 users, 3436 items, 200041 ratings, sparsity 95.41581
+rating period: 08/17/2000 23:10:51 to 02/28/2003 03:51:39
+ItemAverage  training_time 00:00:00.0772630 RMSE 0.98026 MAE 0.78141 NMAE 0.19535 CBD 0.26496 new users: RMSE 0.98034 MAE 0.78143 CBD 0.26496 new items: RMSE 1.64635 MAE 1.37762 CBD 0.32576  new users and items: RMSE 1.64635 MAE 1.37762 CBD 0.32576 testing_time 00:00:00.3258000
+
+training data: 4896 users, 3680 items, 800168 ratings, sparsity 95.55889
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1146 users, 3477 items, 200041 ratings, sparsity 94.9797
+rating period: 07/08/2000 18:42:45 to 02/28/2003 01:00:12
+ItemAverage  training_time 00:00:00.0787890 RMSE 0.97541 MAE 0.78089 NMAE 0.19522 CBD 0.26661 new users: RMSE 0.97551 MAE 0.78096 CBD 0.26664 new items: RMSE 1.29872 MAE 1.03332 CBD 0.32447  new users and items: RMSE 1.29872 MAE 1.03332 CBD 0.32447 testing_time 00:00:00.3140130
+
+training data: 4813 users, 3682 items, 800168 ratings, sparsity 95.48475
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1228 users, 3463 items, 200041 ratings, sparsity 95.29599
+rating period: 11/22/2000 21:59:26 to 02/28/2003 02:31:15
+ItemKNN k=80 correlation=BinaryCosine weighted_binary=False alpha=0 (only for BidirectionalConditionalProbability and Pearson); baseline predictor: reg_u=15 reg_i=10 num_iter=10  training_time 00:01:21.1536690 RMSE 0.98609 MAE 0.78245 NMAE 0.19561 CBD 0.26638 new users: RMSE 0.98611 MAE 0.78245 CBD 0.26639 new items: RMSE 1.54888 MAE 1.28694 CBD 0.34161  new users and items: RMSE 1.54888 MAE 1.28694 CBD 0.34161 testing_time 00:00:03.3611620
+
+training data: 4888 users, 3660 items, 800168 ratings, sparsity 95.52731
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1154 users, 3511 items, 200041 ratings, sparsity 95.06278
+rating period: 11/16/2000 23:40:41 to 02/27/2003 08:15:05
+ItemKNN k=80 correlation=BinaryCosine weighted_binary=False alpha=0 (only for BidirectionalConditionalProbability and Pearson); baseline predictor: reg_u=15 reg_i=10 num_iter=10  training_time 00:01:22.9333590 RMSE 0.9835 MAE 0.7822 NMAE 0.19555 CBD 0.26581 new users: RMSE 0.98363 MAE 0.78231 CBD 0.26582 new items: RMSE 1.60411 MAE 1.39822 CBD 0.36446  new users and items: RMSE 1.60411 MAE 1.39822 CBD 0.36446 testing_time 00:00:05.8451190
+
+training data: 4772 users, 3686 items, 800168 ratings, sparsity 95.4509
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1270 users, 3436 items, 200041 ratings, sparsity 95.41581
+rating period: 08/17/2000 23:10:51 to 02/28/2003 03:51:39
+ItemKNN k=80 correlation=BinaryCosine weighted_binary=False alpha=0 (only for BidirectionalConditionalProbability and Pearson); baseline predictor: reg_u=15 reg_i=10 num_iter=10  training_time 00:01:29.3626740 RMSE 0.98269 MAE 0.77831 NMAE 0.19458 CBD 0.26527 new users: RMSE 0.98274 MAE 0.77839 CBD 0.26528 new items: RMSE 1.64635 MAE 1.37762 CBD 0.32576  new users and items: RMSE 1.64635 MAE 1.37762 CBD 0.32576 testing_time 00:00:16.4700260
+
+training data: 4896 users, 3680 items, 800168 ratings, sparsity 95.55889
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1146 users, 3477 items, 200041 ratings, sparsity 94.9797
+rating period: 07/08/2000 18:42:45 to 02/28/2003 01:00:12
+ItemKNN k=80 correlation=BinaryCosine weighted_binary=False alpha=0 (only for BidirectionalConditionalProbability and Pearson); baseline predictor: reg_u=15 reg_i=10 num_iter=10  training_time 00:01:23.1787750 RMSE 0.97717 MAE 0.77806 NMAE 0.19452 CBD 0.26682 new users: RMSE 0.9773 MAE 0.77821 CBD 0.26685 new items: RMSE 1.29872 MAE 1.03332 CBD 0.32447  new users and items: RMSE 1.29872 MAE 1.03332 CBD 0.32447 testing_time 00:00:12.3902110
+
+training data: 4813 users, 3682 items, 800168 ratings, sparsity 95.48475
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1228 users, 3463 items, 200041 ratings, sparsity 95.29599
+rating period: 11/22/2000 21:59:26 to 02/28/2003 02:31:15
+MatrixFactorization num_factors=10 regularization=0.015 learn_rate=0.01 num_iter=30  training_time 00:00:30.2865900 RMSE 1.1232 MAE 0.93763 NMAE 0.23441 CBD 0.2836 new users: RMSE 1.1233 MAE 0.93772 CBD 0.28362 new items: RMSE 1.54888 MAE 1.28694 CBD 0.34161  new users and items: RMSE 1.54888 MAE 1.28694 CBD 0.34161 testing_time 00:00:00.2594980
+
+training data: 4888 users, 3660 items, 800168 ratings, sparsity 95.52731
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1154 users, 3511 items, 200041 ratings, sparsity 95.06278
+rating period: 11/16/2000 23:40:41 to 02/27/2003 08:15:05
+MatrixFactorization num_factors=10 regularization=0.015 learn_rate=0.01 num_iter=30  training_time 00:00:29.9903070 RMSE 1.12779 MAE 0.94064 NMAE 0.23516 CBD 0.28398 new users: RMSE 1.12801 MAE 0.94088 CBD 0.284 new items: RMSE 1.60411 MAE 1.39822 CBD 0.36446  new users and items: RMSE 1.60411 MAE 1.39822 CBD 0.36446 testing_time 00:00:00.2528240
+
+training data: 4772 users, 3686 items, 800168 ratings, sparsity 95.4509
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1270 users, 3436 items, 200041 ratings, sparsity 95.41581
+rating period: 08/17/2000 23:10:51 to 02/28/2003 03:51:39
+MatrixFactorization num_factors=10 regularization=0.015 learn_rate=0.01 num_iter=30  training_time 00:00:30.1310600 RMSE 1.10908 MAE 0.9279 NMAE 0.23198 CBD 0.28112 new users: RMSE 1.10962 MAE 0.92851 CBD 0.28119 new items: RMSE 1.64635 MAE 1.37762 CBD 0.32576  new users and items: RMSE 1.64635 MAE 1.37762 CBD 0.32576 testing_time 00:00:00.2549480
+
+training data: 4896 users, 3680 items, 800168 ratings, sparsity 95.55889
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1146 users, 3477 items, 200041 ratings, sparsity 94.9797
+rating period: 07/08/2000 18:42:45 to 02/28/2003 01:00:12
+MatrixFactorization num_factors=10 regularization=0.015 learn_rate=0.01 num_iter=30  training_time 00:00:30.2152060 RMSE 1.11001 MAE 0.92692 NMAE 0.23173 CBD 0.28342 new users: RMSE 1.11043 MAE 0.9274 CBD 0.28349 new items: RMSE 1.29872 MAE 1.03332 CBD 0.32447  new users and items: RMSE 1.29872 MAE 1.03332 CBD 0.32447 testing_time 00:00:00.2593940
+
+training data: 4813 users, 3682 items, 800168 ratings, sparsity 95.48475
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1228 users, 3463 items, 200041 ratings, sparsity 95.29599
+rating period: 11/22/2000 21:59:26 to 02/28/2003 02:31:15
+SlopeOne  training_time 00:03:54.8221040 RMSE 1.12321 MAE 0.93764 NMAE 0.23441 CBD 0.2836 new users: RMSE 1.1233 MAE 0.93772 CBD 0.28362 new items: RMSE 1.54888 MAE 1.28694 CBD 0.34161  new users and items: RMSE 1.54888 MAE 1.28694 CBD 0.34161 testing_time 00:00:00.3328720
+
+training data: 4888 users, 3660 items, 800168 ratings, sparsity 95.52731
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1154 users, 3511 items, 200041 ratings, sparsity 95.06278
+rating period: 11/16/2000 23:40:41 to 02/27/2003 08:15:05
+SlopeOne  training_time 00:03:59.6976970 RMSE 1.12779 MAE 0.94064 NMAE 0.23516 CBD 0.28397 new users: RMSE 1.12801 MAE 0.94088 CBD 0.284 new items: RMSE 1.60411 MAE 1.39822 CBD 0.36446  new users and items: RMSE 1.60411 MAE 1.39822 CBD 0.36446 testing_time 00:00:00.3196660
+
+training data: 4772 users, 3686 items, 800168 ratings, sparsity 95.4509
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1270 users, 3436 items, 200041 ratings, sparsity 95.41581
+rating period: 08/17/2000 23:10:51 to 02/28/2003 03:51:39
+SlopeOne  training_time 00:03:58.7883840 RMSE 1.10925 MAE 0.92804 NMAE 0.23201 CBD 0.28114 new users: RMSE 1.10962 MAE 0.92851 CBD 0.28119 new items: RMSE 1.64635 MAE 1.37762 CBD 0.32576  new users and items: RMSE 1.64635 MAE 1.37762 CBD 0.32576 testing_time 00:00:00.4751470
+
+training data: 4896 users, 3680 items, 800168 ratings, sparsity 95.55889
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1146 users, 3477 items, 200041 ratings, sparsity 94.9797
+rating period: 07/08/2000 18:42:45 to 02/28/2003 01:00:12
+SlopeOne  training_time 00:03:47.2803260 RMSE 1.11008 MAE 0.927 NMAE 0.23175 CBD 0.28343 new users: RMSE 1.11043 MAE 0.9274 CBD 0.28349 new items: RMSE 1.29872 MAE 1.03332 CBD 0.32447  new users and items: RMSE 1.29872 MAE 1.03332 CBD 0.32447 testing_time 00:00:00.4435650
+
+training data: 4813 users, 3682 items, 800168 ratings, sparsity 95.48475
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1228 users, 3463 items, 200041 ratings, sparsity 95.29599
+rating period: 11/22/2000 21:59:26 to 02/28/2003 02:31:15
+UserAverage  training_time 00:00:00.0780070 RMSE 1.12329 MAE 0.9377 NMAE 0.23442 CBD 0.28361 new users: RMSE 1.1233 MAE 0.93772 CBD 0.28362 new items: RMSE 1.54888 MAE 1.28694 CBD 0.34161  new users and items: RMSE 1.54888 MAE 1.28694 CBD 0.34161 testing_time 00:00:00.3187970
+
+training data: 4888 users, 3660 items, 800168 ratings, sparsity 95.52731
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1154 users, 3511 items, 200041 ratings, sparsity 95.06278
+rating period: 11/16/2000 23:40:41 to 02/27/2003 08:15:05
+UserAverage  training_time 00:00:00.0763190 RMSE 1.12791 MAE 0.94076 NMAE 0.23519 CBD 0.28399 new users: RMSE 1.12801 MAE 0.94088 CBD 0.284 new items: RMSE 1.60411 MAE 1.39822 CBD 0.36446  new users and items: RMSE 1.60411 MAE 1.39822 CBD 0.36446 testing_time 00:00:00.3154540
+
+training data: 4772 users, 3686 items, 800168 ratings, sparsity 95.4509
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1270 users, 3436 items, 200041 ratings, sparsity 95.41581
+rating period: 08/17/2000 23:10:51 to 02/28/2003 03:51:39
+UserAverage  training_time 00:00:00.0777300 RMSE 1.1097 MAE 0.92855 NMAE 0.23214 CBD 0.2812 new users: RMSE 1.10962 MAE 0.92851 CBD 0.28119 new items: RMSE 1.64635 MAE 1.37762 CBD 0.32576  new users and items: RMSE 1.64635 MAE 1.37762 CBD 0.32576 testing_time 00:00:00.3151480
+
+training data: 4896 users, 3680 items, 800168 ratings, sparsity 95.55889
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1146 users, 3477 items, 200041 ratings, sparsity 94.9797
+rating period: 07/08/2000 18:42:45 to 02/28/2003 01:00:12
+UserAverage  training_time 00:00:00.0774390 RMSE 1.11036 MAE 0.92734 NMAE 0.23183 CBD 0.28346 new users: RMSE 1.11043 MAE 0.9274 CBD 0.28349 new items: RMSE 1.29872 MAE 1.03332 CBD 0.32447  new users and items: RMSE 1.29872 MAE 1.03332 CBD 0.32447 testing_time 00:00:00.3029620
+
+training data: 4813 users, 3682 items, 800168 ratings, sparsity 95.48475
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1228 users, 3463 items, 200041 ratings, sparsity 95.29599
+rating period: 11/22/2000 21:59:26 to 02/28/2003 02:31:15
+UserItemBaseline reg_u=15 reg_i=10 num_iter=10  training_time 00:00:01.2203960 RMSE 0.98609 MAE 0.78246 NMAE 0.19561 CBD 0.26638 new users: RMSE 0.98611 MAE 0.78245 CBD 0.26639 new items: RMSE 1.54888 MAE 1.28694 CBD 0.34161  new users and items: RMSE 1.54888 MAE 1.28694 CBD 0.34161 testing_time 00:00:00.3385420
+
+training data: 4888 users, 3660 items, 800168 ratings, sparsity 95.52731
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1154 users, 3511 items, 200041 ratings, sparsity 95.06278
+rating period: 11/16/2000 23:40:41 to 02/27/2003 08:15:05
+UserItemBaseline reg_u=15 reg_i=10 num_iter=10  training_time 00:00:01.3048990 RMSE 0.98351 MAE 0.7822 NMAE 0.19555 CBD 0.26581 new users: RMSE 0.98363 MAE 0.78231 CBD 0.26582 new items: RMSE 1.60411 MAE 1.39822 CBD 0.36446  new users and items: RMSE 1.60411 MAE 1.39822 CBD 0.36446 testing_time 00:00:00.3287240
+
+training data: 4772 users, 3686 items, 800168 ratings, sparsity 95.4509
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1270 users, 3436 items, 200041 ratings, sparsity 95.41581
+rating period: 08/17/2000 23:10:51 to 02/28/2003 03:51:39
+UserItemBaseline reg_u=15 reg_i=10 num_iter=10  training_time 00:00:01.2407410 RMSE 0.98267 MAE 0.77835 NMAE 0.19459 CBD 0.26527 new users: RMSE 0.98274 MAE 0.77839 CBD 0.26528 new items: RMSE 1.64635 MAE 1.37762 CBD 0.32576  new users and items: RMSE 1.64635 MAE 1.37762 CBD 0.32576 testing_time 00:00:00.3326450
+
+training data: 4896 users, 3680 items, 800168 ratings, sparsity 95.55889
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1146 users, 3477 items, 200041 ratings, sparsity 94.9797
+rating period: 07/08/2000 18:42:45 to 02/28/2003 01:00:12
+UserItemBaseline reg_u=15 reg_i=10 num_iter=10  training_time 00:00:01.2304960 RMSE 0.97719 MAE 0.77812 NMAE 0.19453 CBD 0.26682 new users: RMSE 0.9773 MAE 0.77821 CBD 0.26685 new items: RMSE 1.29872 MAE 1.03332 CBD 0.32447  new users and items: RMSE 1.29872 MAE 1.03332 CBD 0.32447 testing_time 00:00:00.3384820
+
+training data: 4813 users, 3682 items, 800168 ratings, sparsity 95.48475
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1228 users, 3463 items, 200041 ratings, sparsity 95.29599
+rating period: 11/22/2000 21:59:26 to 02/28/2003 02:31:15
+UserKNN k=80 correlation=BinaryCosine weighted_binary=False alpha=0 (only for BidirectionalConditionalProbability and Pearson); baseline predictor: reg_u=15 reg_i=10 num_iter=10  training_time 00:02:23.6100440 RMSE 0.98608 MAE 0.78245 NMAE 0.19561 CBD 0.26638 new users: RMSE 0.98611 MAE 0.78245 CBD 0.26639 new items: RMSE 1.54888 MAE 1.28694 CBD 0.34161  new users and items: RMSE 1.54888 MAE 1.28694 CBD 0.34161 testing_time 00:00:05.1673310
+
+training data: 4888 users, 3660 items, 800168 ratings, sparsity 95.52731
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1154 users, 3511 items, 200041 ratings, sparsity 95.06278
+rating period: 11/16/2000 23:40:41 to 02/27/2003 08:15:05
+UserKNN k=80 correlation=BinaryCosine weighted_binary=False alpha=0 (only for BidirectionalConditionalProbability and Pearson); baseline predictor: reg_u=15 reg_i=10 num_iter=10  training_time 00:02:34.9376310 RMSE 0.98351 MAE 0.7822 NMAE 0.19555 CBD 0.26581 new users: RMSE 0.98363 MAE 0.78231 CBD 0.26582 new items: RMSE 1.60411 MAE 1.39822 CBD 0.36446  new users and items: RMSE 1.60411 MAE 1.39822 CBD 0.36446 testing_time 00:00:08.1533110
+
+training data: 4772 users, 3686 items, 800168 ratings, sparsity 95.4509
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1270 users, 3436 items, 200041 ratings, sparsity 95.41581
+rating period: 08/17/2000 23:10:51 to 02/28/2003 03:51:39
+UserKNN k=80 correlation=BinaryCosine weighted_binary=False alpha=0 (only for BidirectionalConditionalProbability and Pearson); baseline predictor: reg_u=15 reg_i=10 num_iter=10  training_time 00:02:18.3100590 RMSE 0.9826 MAE 0.77827 NMAE 0.19457 CBD 0.26526 new users: RMSE 0.98274 MAE 0.77839 CBD 0.26528 new items: RMSE 1.64635 MAE 1.37762 CBD 0.32576  new users and items: RMSE 1.64635 MAE 1.37762 CBD 0.32576 testing_time 00:00:25.1710900
+
+training data: 4896 users, 3680 items, 800168 ratings, sparsity 95.55889
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1146 users, 3477 items, 200041 ratings, sparsity 94.9797
+rating period: 07/08/2000 18:42:45 to 02/28/2003 01:00:12
+UserKNN k=80 correlation=BinaryCosine weighted_binary=False alpha=0 (only for BidirectionalConditionalProbability and Pearson); baseline predictor: reg_u=15 reg_i=10 num_iter=10  training_time 00:02:30.0742520 RMSE 0.97716 MAE 0.77808 NMAE 0.19452 CBD 0.26682 new users: RMSE 0.9773 MAE 0.77821 CBD 0.26685 new items: RMSE 1.29872 MAE 1.03332 CBD 0.32447  new users and items: RMSE 1.29872 MAE 1.03332 CBD 0.32447 testing_time 00:00:19.3761990
+
+training data: 4813 users, 3682 items, 800168 ratings, sparsity 95.48475
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1228 users, 3463 items, 200041 ratings, sparsity 95.29599
+rating period: 11/22/2000 21:59:26 to 02/28/2003 02:31:15
+TimeAwareBaseline num_iter=30 bin_size=70 beta=0.4 user_bias_learn_rate=0.003 item_bias_learn_rate=0.002 alpha_learn_rate=1E-05 item_bias_by_time_bin_learn_rate=5E-06 user_bias_by_day_learn_rate=0.0025 user_scaling_learn_rate=0.008 user_scaling_by_day_learn_rate=0.002 reg_u=0.03 reg_i=0.03 reg_alpha=50 reg_item_bias_by_time_bin=0.1 reg_user_bias_by_day=0.005 reg_user_scaling=0.01 reg_user_scaling_by_day=0.005 1037 days, 15 bins
+ training_time 00:01:03.1604760 RMSE 0.99378 MAE 0.7899 NMAE 0.19748 CBD 0.26725 new users: RMSE 0.99381 MAE 0.7899 CBD 0.26726 new items: RMSE 1.54888 MAE 1.28694 CBD 0.34161  new users and items: RMSE 1.54888 MAE 1.28694 CBD 0.34161 testing_time 00:00:00.3422170
+
+training data: 4888 users, 3660 items, 800168 ratings, sparsity 95.52731
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1154 users, 3511 items, 200041 ratings, sparsity 95.06278
+rating period: 11/16/2000 23:40:41 to 02/27/2003 08:15:05
+TimeAwareBaseline num_iter=30 bin_size=70 beta=0.4 user_bias_learn_rate=0.003 item_bias_learn_rate=0.002 alpha_learn_rate=1E-05 item_bias_by_time_bin_learn_rate=5E-06 user_bias_by_day_learn_rate=0.0025 user_scaling_learn_rate=0.008 user_scaling_by_day_learn_rate=0.002 reg_u=0.03 reg_i=0.03 reg_alpha=50 reg_item_bias_by_time_bin=0.1 reg_user_bias_by_day=0.005 reg_user_scaling=0.01 reg_user_scaling_by_day=0.005 1037 days, 15 bins
+ training_time 00:01:02.5871570 RMSE 0.9921 MAE 0.78994 NMAE 0.19748 CBD 0.26682 new users: RMSE 0.99224 MAE 0.79006 CBD 0.26683 new items: RMSE 1.60411 MAE 1.39822 CBD 0.36446  new users and items: RMSE 1.60411 MAE 1.39822 CBD 0.36446 testing_time 00:00:00.3484010
+
+training data: 4772 users, 3686 items, 800168 ratings, sparsity 95.4509
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1270 users, 3436 items, 200041 ratings, sparsity 95.41581
+rating period: 08/17/2000 23:10:51 to 02/28/2003 03:51:39
+TimeAwareBaseline num_iter=30 bin_size=70 beta=0.4 user_bias_learn_rate=0.003 item_bias_learn_rate=0.002 alpha_learn_rate=1E-05 item_bias_by_time_bin_learn_rate=5E-06 user_bias_by_day_learn_rate=0.0025 user_scaling_learn_rate=0.008 user_scaling_by_day_learn_rate=0.002 reg_u=0.03 reg_i=0.03 reg_alpha=50 reg_item_bias_by_time_bin=0.1 reg_user_bias_by_day=0.005 reg_user_scaling=0.01 reg_user_scaling_by_day=0.005 1037 days, 15 bins
+ training_time 00:01:02.6468570 RMSE 0.98905 MAE 0.78496 NMAE 0.19624 CBD 0.26598 new users: RMSE 0.98916 MAE 0.78506 CBD 0.26599 new items: RMSE 1.64635 MAE 1.37762 CBD 0.32576  new users and items: RMSE 1.64635 MAE 1.37762 CBD 0.32576 testing_time 00:00:00.3480530
+
+training data: 4896 users, 3680 items, 800168 ratings, sparsity 95.55889
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1146 users, 3477 items, 200041 ratings, sparsity 94.9797
+rating period: 07/08/2000 18:42:45 to 02/28/2003 01:00:12
+TimeAwareBaseline num_iter=30 bin_size=70 beta=0.4 user_bias_learn_rate=0.003 item_bias_learn_rate=0.002 alpha_learn_rate=1E-05 item_bias_by_time_bin_learn_rate=5E-06 user_bias_by_day_learn_rate=0.0025 user_scaling_learn_rate=0.008 user_scaling_by_day_learn_rate=0.002 reg_u=0.03 reg_i=0.03 reg_alpha=50 reg_item_bias_by_time_bin=0.1 reg_user_bias_by_day=0.005 reg_user_scaling=0.01 reg_user_scaling_by_day=0.005 1037 days, 15 bins
+ training_time 00:01:03.5824630 RMSE 0.98456 MAE 0.78576 NMAE 0.19644 CBD 0.26771 new users: RMSE 0.98471 MAE 0.78589 CBD 0.26774 new items: RMSE 1.29872 MAE 1.03332 CBD 0.32447  new users and items: RMSE 1.29872 MAE 1.03332 CBD 0.32447 testing_time 00:00:00.3425420
+
+training data: 4813 users, 3682 items, 800168 ratings, sparsity 95.48475
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1228 users, 3463 items, 200041 ratings, sparsity 95.29599
+rating period: 11/22/2000 21:59:26 to 02/28/2003 02:31:15
+TimeAwareBaselineWithFrequencies num_iter=40 bin_size=70 beta=0.4 user_bias_learn_rate=0.00267 item_bias_learn_rate=0.000488 alpha_learn_rate=3.11E-06 item_bias_by_time_bin_learn_rate=0.000115 user_bias_by_day_learn_rate=0.000257 user_scaling_learn_rate=0.00564 user_scaling_by_day_learn_rate=0.00103 reg_u=0.0255 reg_i=0.0255 reg_alpha=3.95 reg_item_bias_by_time_bin=0.0929 reg_user_bias_by_day=0.00231 reg_user_scaling=0.0476 reg_user_scaling_by_day=0.019 frequency_log_base=6.76 item_bias_at_frequency_learn_rate=0.00236 reg_item_bias_at_frequency=1.1E-08 1037 days, 15 bins
+ training_time 00:02:02.4654220 RMSE 1.00185 MAE 0.79315 NMAE 0.19829 CBD 0.26814 new users: RMSE 1.00188 MAE 0.79314 CBD 0.26815 new items: RMSE 1.54888 MAE 1.28694 CBD 0.34161  new users and items: RMSE 1.54888 MAE 1.28694 CBD 0.34161 testing_time 00:00:00.4444980
+
+training data: 4888 users, 3660 items, 800168 ratings, sparsity 95.52731
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1154 users, 3511 items, 200041 ratings, sparsity 95.06278
+rating period: 11/16/2000 23:40:41 to 02/27/2003 08:15:05
+TimeAwareBaselineWithFrequencies num_iter=40 bin_size=70 beta=0.4 user_bias_learn_rate=0.00267 item_bias_learn_rate=0.000488 alpha_learn_rate=3.11E-06 item_bias_by_time_bin_learn_rate=0.000115 user_bias_by_day_learn_rate=0.000257 user_scaling_learn_rate=0.00564 user_scaling_by_day_learn_rate=0.00103 reg_u=0.0255 reg_i=0.0255 reg_alpha=3.95 reg_item_bias_by_time_bin=0.0929 reg_user_bias_by_day=0.00231 reg_user_scaling=0.0476 reg_user_scaling_by_day=0.019 frequency_log_base=6.76 item_bias_at_frequency_learn_rate=0.00236 reg_item_bias_at_frequency=1.1E-08 1037 days, 15 bins
+ training_time 00:02:02.1839850 RMSE 0.9993 MAE 0.79252 NMAE 0.19813 CBD 0.26759 new users: RMSE 0.99943 MAE 0.79264 CBD 0.2676 new items: RMSE 1.60411 MAE 1.39822 CBD 0.36446  new users and items: RMSE 1.60411 MAE 1.39822 CBD 0.36446 testing_time 00:00:00.4663520
+
+training data: 4772 users, 3686 items, 800168 ratings, sparsity 95.4509
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1270 users, 3436 items, 200041 ratings, sparsity 95.41581
+rating period: 08/17/2000 23:10:51 to 02/28/2003 03:51:39
+TimeAwareBaselineWithFrequencies num_iter=40 bin_size=70 beta=0.4 user_bias_learn_rate=0.00267 item_bias_learn_rate=0.000488 alpha_learn_rate=3.11E-06 item_bias_by_time_bin_learn_rate=0.000115 user_bias_by_day_learn_rate=0.000257 user_scaling_learn_rate=0.00564 user_scaling_by_day_learn_rate=0.00103 reg_u=0.0255 reg_i=0.0255 reg_alpha=3.95 reg_item_bias_by_time_bin=0.0929 reg_user_bias_by_day=0.00231 reg_user_scaling=0.0476 reg_user_scaling_by_day=0.019 frequency_log_base=6.76 item_bias_at_frequency_learn_rate=0.00236 reg_item_bias_at_frequency=1.1E-08 1037 days, 15 bins
+ training_time 00:02:04.7054360 RMSE 0.99328 MAE 0.78464 NMAE 0.19616 CBD 0.26642 new users: RMSE 0.99341 MAE 0.78473 CBD 0.26644 new items: RMSE 1.64635 MAE 1.37762 CBD 0.32576  new users and items: RMSE 1.64635 MAE 1.37762 CBD 0.32576 testing_time 00:00:00.4387570
+
+training data: 4896 users, 3680 items, 800168 ratings, sparsity 95.55889
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1146 users, 3477 items, 200041 ratings, sparsity 94.9797
+rating period: 07/08/2000 18:42:45 to 02/28/2003 01:00:12
+TimeAwareBaselineWithFrequencies num_iter=40 bin_size=70 beta=0.4 user_bias_learn_rate=0.00267 item_bias_learn_rate=0.000488 alpha_learn_rate=3.11E-06 item_bias_by_time_bin_learn_rate=0.000115 user_bias_by_day_learn_rate=0.000257 user_scaling_learn_rate=0.00564 user_scaling_by_day_learn_rate=0.00103 reg_u=0.0255 reg_i=0.0255 reg_alpha=3.95 reg_item_bias_by_time_bin=0.0929 reg_user_bias_by_day=0.00231 reg_user_scaling=0.0476 reg_user_scaling_by_day=0.019 frequency_log_base=6.76 item_bias_at_frequency_learn_rate=0.00236 reg_item_bias_at_frequency=1.1E-08 1037 days, 15 bins
+ training_time 00:02:00.4413750 RMSE 0.98982 MAE 0.78655 NMAE 0.19664 CBD 0.26824 new users: RMSE 0.98998 MAE 0.78669 CBD 0.26827 new items: RMSE 1.29872 MAE 1.03332 CBD 0.32447  new users and items: RMSE 1.29872 MAE 1.03332 CBD 0.32447 testing_time 00:00:00.4276260
+
+training data: 4813 users, 3682 items, 800168 ratings, sparsity 95.48475
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1228 users, 3463 items, 200041 ratings, sparsity 95.29599
+rating period: 11/22/2000 21:59:26 to 02/28/2003 02:31:15
+CoClustering num_user_clusters=3 num_item_clusters=3 num_iter=30  training_time 00:00:45.4754860 RMSE 1.0829 MAE 0.87182 NMAE 0.21796 CBD 0.27833 new users: RMSE 1.08296 MAE 0.87187 CBD 0.27835 new items: RMSE 1.54888 MAE 1.28694 CBD 0.34161  new users and items: RMSE 1.54888 MAE 1.28694 CBD 0.34161 testing_time 00:00:00.3371660
+
+training data: 4888 users, 3660 items, 800168 ratings, sparsity 95.52731
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1154 users, 3511 items, 200041 ratings, sparsity 95.06278
+rating period: 11/16/2000 23:40:41 to 02/27/2003 08:15:05
+CoClustering num_user_clusters=3 num_item_clusters=3 num_iter=30  training_time 00:00:44.2653310 RMSE 1.08152 MAE 0.87194 NMAE 0.21798 CBD 0.27793 new users: RMSE 1.08167 MAE 0.87209 CBD 0.27794 new items: RMSE 1.60411 MAE 1.39822 CBD 0.36446  new users and items: RMSE 1.60411 MAE 1.39822 CBD 0.36446 testing_time 00:00:00.3237280
+
+training data: 4772 users, 3686 items, 800168 ratings, sparsity 95.4509
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1270 users, 3436 items, 200041 ratings, sparsity 95.41581
+rating period: 08/17/2000 23:10:51 to 02/28/2003 03:51:39
+CoClustering num_user_clusters=3 num_item_clusters=3 num_iter=30  training_time 00:00:44.5524920 RMSE 1.06741 MAE 0.8487 NMAE 0.21217 CBD 0.27573 new users: RMSE 1.0677 MAE 0.84894 CBD 0.27576 new items: RMSE 1.64635 MAE 1.37762 CBD 0.32576  new users and items: RMSE 1.64635 MAE 1.37762 CBD 0.32576 testing_time 00:00:00.3229450
+
+training data: 4896 users, 3680 items, 800168 ratings, sparsity 95.55889
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1146 users, 3477 items, 200041 ratings, sparsity 94.9797
+rating period: 07/08/2000 18:42:45 to 02/28/2003 01:00:12
+CoClustering num_user_clusters=3 num_item_clusters=3 num_iter=30  training_time 00:00:43.8451430 RMSE 1.07444 MAE 0.8633 NMAE 0.21582 CBD 0.2788 new users: RMSE 1.07471 MAE 0.86351 CBD 0.27885 new items: RMSE 1.29872 MAE 1.03332 CBD 0.32447  new users and items: RMSE 1.29872 MAE 1.03332 CBD 0.32447 testing_time 00:00:00.3405060
+
+training data: 4813 users, 3682 items, 800168 ratings, sparsity 95.48475
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1228 users, 3463 items, 200041 ratings, sparsity 95.29599
+rating period: 11/22/2000 21:59:26 to 02/28/2003 02:31:15
+LatentFeatureLogLinearModel num_factors=10 bias_reg=0.01 reg_u=0.015 reg_i=0.015 frequency_regularization=False learn_rate=0.01 bias_learn_rate=1 num_iter=30 loss=RMSE  training_time 00:03:11.7454930 RMSE 1.0897 MAE 0.86929 NMAE 0.21732 CBD 0.28602 new users: RMSE 1.08977 MAE 0.86933 CBD 0.28604 new items: RMSE 1.72171 MAE 1.42857 CBD 0.41263  new users and items: RMSE 1.72171 MAE 1.42857 CBD 0.41263 testing_time 00:00:00.6176810
+
+training data: 4888 users, 3660 items, 800168 ratings, sparsity 95.52731
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1154 users, 3511 items, 200041 ratings, sparsity 95.06278
+rating period: 11/16/2000 23:40:41 to 02/27/2003 08:15:05
+LatentFeatureLogLinearModel num_factors=10 bias_reg=0.01 reg_u=0.015 reg_i=0.015 frequency_regularization=False learn_rate=0.01 bias_learn_rate=1 num_iter=30 loss=RMSE  training_time 00:03:02.7932280 RMSE 1.08487 MAE 0.86677 NMAE 0.21669 CBD 0.28484 new users: RMSE 1.08506 MAE 0.86694 CBD 0.28486 new items: RMSE 1.30171 MAE 1.05556 CBD 0.33969  new users and items: RMSE 1.30171 MAE 1.05556 CBD 0.33969 testing_time 00:00:00.6178480
+
+training data: 4772 users, 3686 items, 800168 ratings, sparsity 95.4509
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1270 users, 3436 items, 200041 ratings, sparsity 95.41581
+rating period: 08/17/2000 23:10:51 to 02/28/2003 03:51:39
+LatentFeatureLogLinearModel num_factors=10 bias_reg=0.01 reg_u=0.015 reg_i=0.015 frequency_regularization=False learn_rate=0.01 bias_learn_rate=1 num_iter=30 loss=RMSE  training_time 00:03:11.0038230 RMSE 1.09719 MAE 0.87328 NMAE 0.21832 CBD 0.28663 new users: RMSE 1.09759 MAE 0.87364 CBD 0.2867 new items: RMSE 2.06155 MAE 1.72727 CBD 0.46133  new users and items: RMSE 2.06155 MAE 1.72727 CBD 0.46133 testing_time 00:00:00.6102040
+
+training data: 4896 users, 3680 items, 800168 ratings, sparsity 95.55889
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1146 users, 3477 items, 200041 ratings, sparsity 94.9797
+rating period: 07/08/2000 18:42:45 to 02/28/2003 01:00:12
+LatentFeatureLogLinearModel num_factors=10 bias_reg=0.01 reg_u=0.015 reg_i=0.015 frequency_regularization=False learn_rate=0.01 bias_learn_rate=1 num_iter=30 loss=RMSE  training_time 00:02:58.1593610 RMSE 1.11289 MAE 0.88614 NMAE 0.22154 CBD 0.29196 new users: RMSE 1.11326 MAE 0.88646 CBD 0.29205 new items: RMSE 1.82782 MAE 1.59091 CBD 0.46774  new users and items: RMSE 1.82782 MAE 1.59091 CBD 0.46774 testing_time 00:00:00.6476200
+
+training data: 4813 users, 3682 items, 800168 ratings, sparsity 95.48475
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1228 users, 3463 items, 200041 ratings, sparsity 95.29599
+rating period: 11/22/2000 21:59:26 to 02/28/2003 02:31:15
+BiasedMatrixFactorization num_factors=10 bias_reg=0.01 reg_u=0.015 reg_i=0.015 frequency_regularization=False learn_rate=0.01 bias_learn_rate=1 num_iter=30 bold_driver=False loss=RMSE max_threads=1 naive_parallelization=False  training_time 00:00:31.4577210 RMSE 0.98737 MAE 0.78194 NMAE 0.19549 CBD 0.26659 new users: RMSE 0.9874 MAE 0.78195 CBD 0.26661 new items: RMSE 1.54888 MAE 1.28694 CBD 0.34161  new users and items: RMSE 1.54888 MAE 1.28694 CBD 0.34161 testing_time 00:00:00.3117860
+
+training data: 4888 users, 3660 items, 800168 ratings, sparsity 95.52731
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1154 users, 3511 items, 200041 ratings, sparsity 95.06278
+rating period: 11/16/2000 23:40:41 to 02/27/2003 08:15:05
+BiasedMatrixFactorization num_factors=10 bias_reg=0.01 reg_u=0.015 reg_i=0.015 frequency_regularization=False learn_rate=0.01 bias_learn_rate=1 num_iter=30 bold_driver=False loss=RMSE max_threads=1 naive_parallelization=False  training_time 00:00:31.4118910 RMSE 0.98462 MAE 0.78189 NMAE 0.19547 CBD 0.266 new users: RMSE 0.98473 MAE 0.78199 CBD 0.26601 new items: RMSE 1.60411 MAE 1.39822 CBD 0.36446  new users and items: RMSE 1.60411 MAE 1.39822 CBD 0.36446 testing_time 00:00:00.3218270
+
+training data: 4772 users, 3686 items, 800168 ratings, sparsity 95.4509
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1270 users, 3436 items, 200041 ratings, sparsity 95.41581
+rating period: 08/17/2000 23:10:51 to 02/28/2003 03:51:39
+BiasedMatrixFactorization num_factors=10 bias_reg=0.01 reg_u=0.015 reg_i=0.015 frequency_regularization=False learn_rate=0.01 bias_learn_rate=1 num_iter=30 bold_driver=False loss=RMSE max_threads=1 naive_parallelization=False  training_time 00:00:31.1901180 RMSE 0.98556 MAE 0.77919 NMAE 0.1948 CBD 0.26567 new users: RMSE 0.98586 MAE 0.77946 CBD 0.26571 new items: RMSE 1.64635 MAE 1.37762 CBD 0.32576  new users and items: RMSE 1.64635 MAE 1.37762 CBD 0.32576 testing_time 00:00:00.2872060
+
+training data: 4896 users, 3680 items, 800168 ratings, sparsity 95.55889
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1146 users, 3477 items, 200041 ratings, sparsity 94.9797
+rating period: 07/08/2000 18:42:45 to 02/28/2003 01:00:12
+BiasedMatrixFactorization num_factors=10 bias_reg=0.01 reg_u=0.015 reg_i=0.015 frequency_regularization=False learn_rate=0.01 bias_learn_rate=1 num_iter=30 bold_driver=False loss=RMSE max_threads=1 naive_parallelization=False  training_time 00:00:31.1030600 RMSE 0.97942 MAE 0.77826 NMAE 0.19457 CBD 0.26711 new users: RMSE 0.97966 MAE 0.77849 CBD 0.26715 new items: RMSE 1.29872 MAE 1.03332 CBD 0.32447  new users and items: RMSE 1.29872 MAE 1.03332 CBD 0.32447 testing_time 00:00:00.2947730
+
+training data: 4813 users, 3682 items, 800168 ratings, sparsity 95.48475
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1228 users, 3463 items, 200041 ratings, sparsity 95.29599
+rating period: 11/22/2000 21:59:26 to 02/28/2003 02:31:15
+SVDPlusPlus num_factors=10 regularization=0.015 bias_reg=0.33 frequency_regularization=False learn_rate=0.001 bias_learn_rate=0.7 num_iter=30  training_time 01:10:35.5613140 RMSE 0.98834 MAE 0.78262 NMAE 0.19565 CBD 0.26662 new users: RMSE 0.98835 MAE 0.7826 CBD 0.26663 new items: RMSE 1.54888 MAE 1.28694 CBD 0.34161  new users and items: RMSE 1.54888 MAE 1.28694 CBD 0.34161 testing_time 00:00:00.4519220
+
+training data: 4888 users, 3660 items, 800168 ratings, sparsity 95.52731
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1154 users, 3511 items, 200041 ratings, sparsity 95.06278
+rating period: 11/16/2000 23:40:41 to 02/27/2003 08:15:05
+SVDPlusPlus num_factors=10 regularization=0.015 bias_reg=0.33 frequency_regularization=False learn_rate=0.001 bias_learn_rate=0.7 num_iter=30  training_time 01:08:22.1392990 RMSE 0.98828 MAE 0.78332 NMAE 0.19583 CBD 0.26637 new users: RMSE 0.98839 MAE 0.78342 CBD 0.26638 new items: RMSE 1.60411 MAE 1.39822 CBD 0.36446  new users and items: RMSE 1.60411 MAE 1.39822 CBD 0.36446 testing_time 00:00:00.4404420
+
+training data: 4772 users, 3686 items, 800168 ratings, sparsity 95.4509
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1270 users, 3436 items, 200041 ratings, sparsity 95.41581
+rating period: 08/17/2000 23:10:51 to 02/28/2003 03:51:39
+SVDPlusPlus num_factors=10 regularization=0.015 bias_reg=0.33 frequency_regularization=False learn_rate=0.001 bias_learn_rate=0.7 num_iter=30  training_time 01:13:19.1905630 RMSE 0.9845 MAE 0.77802 NMAE 0.1945 CBD 0.26543 new users: RMSE 0.98459 MAE 0.77807 CBD 0.26544 new items: RMSE 1.64635 MAE 1.37762 CBD 0.32576  new users and items: RMSE 1.64635 MAE 1.37762 CBD 0.32576 testing_time 00:00:00.4666910
+
+training data: 4896 users, 3680 items, 800168 ratings, sparsity 95.55889
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1146 users, 3477 items, 200041 ratings, sparsity 94.9797
+rating period: 07/08/2000 18:42:45 to 02/28/2003 01:00:12
+SVDPlusPlus num_factors=10 regularization=0.015 bias_reg=0.33 frequency_regularization=False learn_rate=0.001 bias_learn_rate=0.7 num_iter=30  training_time 01:14:06.7941970 RMSE 0.97738 MAE 0.77641 NMAE 0.1941 CBD 0.26681 new users: RMSE 0.97751 MAE 0.77652 CBD 0.26684 new items: RMSE 1.29872 MAE 1.03332 CBD 0.32447  new users and items: RMSE 1.29872 MAE 1.03332 CBD 0.32447 testing_time 00:00:00.4618200
+
+training data: 4813 users, 3682 items, 800168 ratings, sparsity 95.48475
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1228 users, 3463 items, 200041 ratings, sparsity 95.29599
+rating period: 11/22/2000 21:59:26 to 02/28/2003 02:31:15
+SigmoidSVDPlusPlus num_factors=10 regularization=0.015 bias_reg=0.33 frequency_regularization=False learn_rate=0.001 bias_learn_rate=0.7 num_iter=30 loss=RMSE  training_time 01:11:15.0113630 RMSE 1.14263 MAE 0.88233 NMAE 0.22058 CBD 0.29435 new users: RMSE 1.14271 MAE 0.88236 CBD 0.29437 new items: RMSE 2.54466 MAE 2.229 CBD 0.91575  new users and items: RMSE 2.54466 MAE 2.229 CBD 0.91575 testing_time 00:00:00.4922130
+
+training data: 4888 users, 3660 items, 800168 ratings, sparsity 95.52731
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1154 users, 3511 items, 200041 ratings, sparsity 95.06278
+rating period: 11/16/2000 23:40:41 to 02/27/2003 08:15:05
+SigmoidSVDPlusPlus num_factors=10 regularization=0.015 bias_reg=0.33 frequency_regularization=False learn_rate=0.001 bias_learn_rate=0.7 num_iter=30 loss=RMSE  training_time 01:09:35.9698030 RMSE 1.13825 MAE 0.87992 NMAE 0.21998 CBD 0.29273 new users: RMSE 1.13842 MAE 0.88008 CBD 0.29275 new items: RMSE 2.74744 MAE 2.56297 CBD 1.05057  new users and items: RMSE 2.74744 MAE 2.56297 CBD 1.05057 testing_time 00:00:00.4756500
+
+training data: 4772 users, 3686 items, 800168 ratings, sparsity 95.4509
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1270 users, 3436 items, 200041 ratings, sparsity 95.41581
+rating period: 08/17/2000 23:10:51 to 02/28/2003 03:51:39
+SigmoidSVDPlusPlus num_factors=10 regularization=0.015 bias_reg=0.33 frequency_regularization=False learn_rate=0.001 bias_learn_rate=0.7 num_iter=30 loss=RMSE  training_time 01:11:35.5798720 RMSE 1.15046 MAE 0.88788 NMAE 0.22197 CBD 0.29447 new users: RMSE 1.15085 MAE 0.88816 CBD 0.29454 new items: RMSE 2.48861 MAE 2.02167 CBD 0.824  new users and items: RMSE 2.48861 MAE 2.02167 CBD 0.824 testing_time 00:00:00.4590400
+
+training data: 4896 users, 3680 items, 800168 ratings, sparsity 95.55889
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1146 users, 3477 items, 200041 ratings, sparsity 94.9797
+rating period: 07/08/2000 18:42:45 to 02/28/2003 01:00:12
+SigmoidSVDPlusPlus num_factors=10 regularization=0.015 bias_reg=0.33 frequency_regularization=False learn_rate=0.001 bias_learn_rate=0.7 num_iter=30 loss=RMSE  training_time 01:08:57.5826160 RMSE 1.15222 MAE 0.89195 NMAE 0.22299 CBD 0.29736 new users: RMSE 1.15261 MAE 0.89225 CBD 0.29744 new items: RMSE 2.25437 MAE 1.95926 CBD 0.81408  new users and items: RMSE 2.25437 MAE 1.95926 CBD 0.81408 testing_time 00:00:00.4640530
+
+training data: 4813 users, 3682 items, 800168 ratings, sparsity 95.48475
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1228 users, 3463 items, 200041 ratings, sparsity 95.29599
+rating period: 11/22/2000 21:59:26 to 02/28/2003 02:31:15
+SigmoidItemAsymmetricFactorModel num_factors=10 regularization=0.015 bias_reg=0.33 frequency_regularization=False learn_rate=0.001 bias_learn_rate=0.7 num_iter=30 loss=RMSE  training_time 01:10:57.2259240 RMSE 0.9876 MAE 0.78184 NMAE 0.19546 CBD 0.26657 new users: RMSE 0.98762 MAE 0.78183 CBD 0.26659 new items: RMSE 1.54313 MAE 1.27933 CBD 0.34058  new users and items: RMSE 1.54313 MAE 1.27933 CBD 0.34058 testing_time 00:00:00.4673310
+
+training data: 4888 users, 3660 items, 800168 ratings, sparsity 95.52731
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1154 users, 3511 items, 200041 ratings, sparsity 95.06278
+rating period: 11/16/2000 23:40:41 to 02/27/2003 08:15:05
+SigmoidItemAsymmetricFactorModel num_factors=10 regularization=0.015 bias_reg=0.33 frequency_regularization=False learn_rate=0.001 bias_learn_rate=0.7 num_iter=30 loss=RMSE  training_time 01:10:38.9258320 RMSE 0.98644 MAE 0.78178 NMAE 0.19545 CBD 0.26619 new users: RMSE 0.98656 MAE 0.78189 CBD 0.2662 new items: RMSE 1.60302 MAE 1.39755 CBD 0.36432  new users and items: RMSE 1.60302 MAE 1.39755 CBD 0.36432 testing_time 00:00:00.4907560
+
+training data: 4772 users, 3686 items, 800168 ratings, sparsity 95.4509
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1270 users, 3436 items, 200041 ratings, sparsity 95.41581
+rating period: 08/17/2000 23:10:51 to 02/28/2003 03:51:39
+SigmoidItemAsymmetricFactorModel num_factors=10 regularization=0.015 bias_reg=0.33 frequency_regularization=False learn_rate=0.001 bias_learn_rate=0.7 num_iter=30 loss=RMSE  training_time 01:12:38.5364070 RMSE 0.985 MAE 0.77841 NMAE 0.1946 CBD 0.26554 new users: RMSE 0.98508 MAE 0.77845 CBD 0.26555 new items: RMSE 1.67609 MAE 1.40308 CBD 0.3317  new users and items: RMSE 1.67609 MAE 1.40308 CBD 0.3317 testing_time 00:00:00.5190360
+
+training data: 4896 users, 3680 items, 800168 ratings, sparsity 95.55889
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1146 users, 3477 items, 200041 ratings, sparsity 94.9797
+rating period: 07/08/2000 18:42:45 to 02/28/2003 01:00:12
+SigmoidItemAsymmetricFactorModel num_factors=10 regularization=0.015 bias_reg=0.33 frequency_regularization=False learn_rate=0.001 bias_learn_rate=0.7 num_iter=30 loss=RMSE  training_time 01:10:35.6559010 RMSE 0.97733 MAE 0.77636 NMAE 0.19409 CBD 0.26684 new users: RMSE 0.97746 MAE 0.77646 CBD 0.26687 new items: RMSE 1.3089 MAE 1.04481 CBD 0.32614  new users and items: RMSE 1.3089 MAE 1.04481 CBD 0.32614 testing_time 00:00:00.4872020
+
+training data: 4813 users, 3682 items, 800168 ratings, sparsity 95.48475
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1228 users, 3463 items, 200041 ratings, sparsity 95.29599
+rating period: 11/22/2000 21:59:26 to 02/28/2003 02:31:15
+SigmoidUserAsymmetricFactorModel num_factors=10 regularization=0.015 bias_reg=0.33 frequency_regularization=False learn_rate=0.001 bias_learn_rate=0.7 num_iter=30 loss=RMSE  training_time 02:34:32.5057370 RMSE 0.99409 MAE 0.78653 NMAE 0.19663 CBD 0.26728 new users: RMSE 0.99411 MAE 0.78653 CBD 0.2673 new items: RMSE 1.54869 MAE 1.28649 CBD 0.34158  new users and items: RMSE 1.54869 MAE 1.28649 CBD 0.34158 testing_time 00:00:00.4795490
+
+training data: 4888 users, 3660 items, 800168 ratings, sparsity 95.52731
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1154 users, 3511 items, 200041 ratings, sparsity 95.06278
+rating period: 11/16/2000 23:40:41 to 02/27/2003 08:15:05
+SigmoidUserAsymmetricFactorModel num_factors=10 regularization=0.015 bias_reg=0.33 frequency_regularization=False learn_rate=0.001 bias_learn_rate=0.7 num_iter=30 loss=RMSE  training_time 02:32:31.3071500 RMSE 0.9924 MAE 0.78616 NMAE 0.19654 CBD 0.26684 new users: RMSE 0.99252 MAE 0.78626 CBD 0.26685 new items: RMSE 1.60481 MAE 1.39882 CBD 0.36459  new users and items: RMSE 1.60481 MAE 1.39882 CBD 0.36459 testing_time 00:00:00.4970080
+
+training data: 4772 users, 3686 items, 800168 ratings, sparsity 95.4509
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1270 users, 3436 items, 200041 ratings, sparsity 95.41581
+rating period: 08/17/2000 23:10:51 to 02/28/2003 03:51:39
+SigmoidUserAsymmetricFactorModel num_factors=10 regularization=0.015 bias_reg=0.33 frequency_regularization=False learn_rate=0.001 bias_learn_rate=0.7 num_iter=30 loss=RMSE  training_time 02:33:33.6256460 RMSE 0.98824 MAE 0.78047 NMAE 0.19512 CBD 0.26592 new users: RMSE 0.98833 MAE 0.78052 CBD 0.26592 new items: RMSE 1.64618 MAE 1.37766 CBD 0.32572  new users and items: RMSE 1.64618 MAE 1.37766 CBD 0.32572 testing_time 00:00:00.4664350
+
+training data: 4896 users, 3680 items, 800168 ratings, sparsity 95.55889
+rating period: 04/27/2000 02:05:32 to 02/28/2003 20:49:50
+test data:     1146 users, 3477 items, 200041 ratings, sparsity 94.9797
+rating period: 07/08/2000 18:42:45 to 02/28/2003 01:00:12
+SigmoidUserAsymmetricFactorModel num_factors=10 regularization=0.015 bias_reg=0.33 frequency_regularization=False learn_rate=0.001 bias_learn_rate=0.7 num_iter=30 loss=RMSE 
