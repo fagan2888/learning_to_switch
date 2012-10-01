@@ -95,20 +95,27 @@ def main():
     
     print "************************************"      
     print 'Running for %s' % algorithm
-    for i in range(1,5):
+    for i in range(1,6):
       train_file = '%s/%s%d.train' % (input_dir, file_name, i)
       test_file = '%s/%s%d.test' % (input_dir, file_name, i)
       output_file = '%s/%s_fold%d.output' % (output_dir, algorithm, i)
       item_attributes_file = '%s/%s%d.item' % (input_dir, file_name, i)
       user_attributes_file = '%s/%s%d.user' % (input_dir, file_name, i)
+      
+      #Algoritmos que usem atributos de items
+
       if algorithm == "ItemAttributeKNN" or algorithm == "NaiveBayes":
         cmd = ('rating_prediction --training-file=%s --test-file=%s\
   --recommender=%s --prediction-file=%s item-attributes=%s --file-format=movielens_1m'%
                (train_file, test_file, algorithm, output_file, item_attributes_file))
+      
+      #Algoritmos que usem atributos de usuários
       elif algorithm == "UserAttributeKNN":
         cmd = ('rating_prediction --training-file=%s --test-file=%s\
   --recommender=%s --prediction-file=%s --user-attributes=%s --file-format=movielens_1m'%
                (train_file, test_file, algorithm, output_file, user_attributes_file, ))
+        
+      #Outros algoritmos
       else:
         cmd = ('rating_prediction --training-file=%s --test-file=%s\
   --recommender=%s --prediction-file=%s --file-format=movielens_1m'%
