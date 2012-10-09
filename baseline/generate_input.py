@@ -12,12 +12,12 @@ import random
 def Usage():
   print "%s" % sys.argv[0]
   print "Options: "
-  print "-i (required) ratings file - in MovieLens1M format"
+  print "-i (required) ratings file - using MovieLens1M format"
   print "-o (required) output file prefix. Final output is option_train and option_test"
   print "-p (optional) Percentage of the file to be used as training. Default as 0.8"
   print "Example Usage:"
   print "./generate_input.py -i /mnt/hd0/marcotcr/datasets/movielens1M/ratings.dat -o out -p 80"
-
+  sys.exit(2)
 def File_Size(fname):
   """
   Count how many inputs there is in a file
@@ -26,16 +26,6 @@ def File_Size(fname):
     for i, l in enumerate(f):
       pass
   return i+1
-
-def Random_Line(afile):
-  """
-  Returns a random line from a file, as described by Donald Knuth, using Waterman's "Reservoir Algorithm"
-  """
-  line = next(afile)
-  for num, aline in enumerate(afile):
-    if randon.randrange(num+2): continue
-    line = aline
-  return line
 
 def main():
   try: 
@@ -58,18 +48,19 @@ def main():
       percentage = float(value)
     else:
       assert False, "Option %s is not avaiable" % option
-  if not  in_file or train_file or test_file:
+  if not  in_file or not train_file or not test_file:
+    print "Something is missing"
     Usage()
 
   #Get the input size
   in_size = File_Size(in_file)
   test_size = in_size*percentage
 
-  train_file = open(train_file, "r")
-  test_file  = open(test_file,  "r")
+  train_file = open(train_file, "w")
+  test_file  = open(test_file,  "w")
 
   #Shuffle lines of a file
-  with open('in_file', 'r') as source:
+  with open(in_file, 'r') as source:
     data = [ (random.random(), line) for line in source ]
     data.sort()
   
