@@ -81,7 +81,7 @@ def main():
       test_file.write(line)
     elif i > test_size:
       train_file.write(line)
-    i++
+    i = i+1
 
 if __name__ == "__main__":
   main()
