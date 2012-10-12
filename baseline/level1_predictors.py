@@ -28,8 +28,8 @@ def Usage():
 
 def main():
   try:
-     opts, args = getopt.getopt(sys.argv[1:], "i:o:p:")
-  except getopt.GetOptError, err:
+     opts, args = getopt.getopt(sys.argv[1:], "a:i:o:t:u:")
+  except getopt.GetoptError, err:
     print str(err)
     Usage()
   algorithms      = None
@@ -48,33 +48,33 @@ def main():
   'SigmoidUserAsymmetricFactorModel', 'SigmoidCombinedAsymmetricFactorModel']
 
   for option, value in opts:
-    if options == "-h":
+    if option == "-h":
       Usage()
-    elif options == "-a":
+    elif option == "-a":
       algorithms = value.split(',')
-    elif options == "-t":
+    elif option == "-t":
       train_file = value+"_train"
       test_file  = value+"_test"
-    elif options == "-o":
+    elif option == "-o":
       output_file = value
-    elif options == "-i":
+    elif option == "-i":
       item_attributes = value
-    elif options == "-u":
+    elif option == "-u":
       user_attributes = value
     else:
       assert False, "Option %s not avaiable" % option
-  if not train_file or not output_folder:
+  if not train_file or not output_file:
     Usage()
   for algorithm in algorithms:
     
     if algorithm == "ItemAttributeKNN" or algorithm == "NaiveBayes":
-      cmd = ('rating-prediction --training_file=%s --test_file=%s --recommender=%s --prediction_file=%s item-attributes=%s --file-fomat=movielens_1m' % 
+      cmd = ('rating_prediction --training-file=%s --test-file=%s --recommender=%s --prediction-file=%s --item-attributes=%s --file-format=movielens_1m' % 
 (train_file, test_file, algorithm, output_file, item_attributes))
-    elif algoritm == "UserAttributeKNN":
-       cmd = ('rating-prediction --training_file=%s --test_file=%s --recommender=%s --prediction_file=%s user-attributes=%s --file-fomat=movielens_1m' % 
+    elif algorithm == "UserAttributeKNN":
+       cmd = ('rating_prediction --training-file=%s --test-file=%s --recommender=%s --prediction-file=%s --user-attributes=%s --file-format=movielens_1m' % 
 (train_file, test_file, algorithm, output_file, user_attributes))
     else:
-       cmd = ('rating-prediction --training_file=%s --test_file=%s --recommender=%s --prediction_file=%s --file-fomat=movielens_1m' % 
+       cmd = ('rating_prediction --training-file=%s --test-file=%s --recommender=%s --prediction-file=%s --file-format=movielens_1m' % 
 (train_file, test_file, algorithm, output_file))
     os.system(cmd)
 
