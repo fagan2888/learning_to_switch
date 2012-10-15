@@ -16,7 +16,7 @@ def Usage():
   print "-o (required) output file prefix. Final output is option_train and option_test"
   print "-p (optional) Percentage of the file to be used as training. Default as 0.8"
   print "Example Usage:"
-  print "./generate_input.py -i /mnt/hd0/marcotcr/datasets/movielens1M/ratings.dat -o out -p 80"
+  print "./generate_input.py -i /mnt/hd0/marcotcr/datasets/movielens1M/ratings.dat -o out -p .80"
   sys.exit(2)
 def File_Size(fname):
   """
