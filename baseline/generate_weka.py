@@ -68,17 +68,71 @@ def ListToString(l):
 
   return l
 
+def GenerateCV(cv_file_format, input_file):
+  """Generates a 5-fold validation set for a file"""
+  cmd = ("./generate_cv.py -i %s, -o %s") % (input_file, cv_file_format)
+  os.system(cmd)
+
+def GenerateTrainningRates(training_input, algorithms, item_attributes, user_attributes):
+  """Given the training file input and the list of algorithms, creates a map[algorithm][user][movie] = rating, with the rating predictet by a algorithm
+  """
+  cv_file_format = "r"
+  out_format = "out"
+  
+  ratings = {}
+    
+#generate 5fold Cross Validation. The same for every algorithm
+  GenerateCV(cv_file_format, training_input)
+  for algorithm in algorithm:
+    for i in range(1,6):
+      train_file = cv_file_format+algorithm+str(i)+".train"
+      test_file  = cv_file_format+algorithm+str(i)+".test"
+      out_file   = out_fomat+algorithm+str(i)+".output"
+       
+      #run algorithms
+      if algorithm == "ItemAttributeKNN" or algorithm == "NaiveBayes":
+        cmd = ('rating_prediction --training-file=%s --test-file=%s --recommender=%s --prediction-file=%s --item-attributes=%s --file-format=movielens_1m' %
+                            (train_file, test_file, algorithm, out_file, item_attributes))
+        print cmd
+      elif algorithm == "UserAttributeKNN":
+        cmd = ('rating_prediction --training-file=%s --test-file=%s --recommender=%s --prediction-file=%s --user-attributes=%s --file-format=movielens_1m' %
+               (train_file, test_file, algorithm, out_file, user_attributes, ))
+        print cmd
+      else:
+        cmd = ('rating_prediction --training-file=%s --test-file=%s --recommender=%s --prediction-file=%s --file-format=movielens_1m'%
+              (train_file, test_file, algorithm, out_file))
+      print cmd
+      os.system(cmd)
+    #After running the algorithms, create the mapping
+  for algorithm in algorithms:
+    ratings[algorithm] = {}
+    for i in range(1, 6):
+      fold_file = open(out_format+algorithm+str(i)+".output", 'r')
+      for line in fold_file:
+        linep = line.split()
+        user_id = line[0]
+        movie_id = line[1]
+        rating = line[2]
+        ratings[algorithm][user_id] = {}
+        ratings[algorithm][user_id][movie_id] = rating  
+  
+  return ratings
+  
 def  GenerateRatings(file_format, algorithms):
   """Generates a dictionary, with tuples as keys that maps[(user_id,movie_id, algorithm)]->rating
     Receives an algorithm list and the file format used for the inputs
   """
   ratings = {}
   for algorithm in algorithms:
+    ratings[algorithm] = {}
     in_file = open(algorithm+ '_' + file_format, 'r')
     for line in in_file:
       linep = line.split(" ")
-      ratings[(int(linep[0]), int(linep[1]), algorithm)] = float(linep[2])
-
+      user_id = linep[0]
+      movie_id = linep[1]
+      rating = linep[2]
+      ratings[algorithm][user_id] = {}
+      ratings[algorithm][user_id][movie_id]=rating
 def PrintWeka(out_file, algorithms, )
 
 
@@ -94,7 +148,7 @@ def main():
   itens_rated_by_user = dict()
   users_rated_item    = dict()
   ratings             = {}
-  percentage          = '0.80'
+  cv_ratings          = {}
   in_file_format      = None
   in_file             = None
   out_file            = None
@@ -136,6 +190,9 @@ def main():
   #Defines the Runtime metrics to be used, as dictionaries
   itens_rated_by_user = GenerateRM1(train_file)
   users_rated_item    = GenerateRM2(train_file)
+
+  #generates the rating provided by the algorithms for the trainning file
+  cv_ratings = GenerateTrainningRates(train_file, algorithms, item_attributes, user_attributes)
 
   #generates a tuple-indexed dictionary ratings[(user_id, movie_id, algorithm')] -> rating
   ratings = GenerateRatings(in_file_format, algorithms)
