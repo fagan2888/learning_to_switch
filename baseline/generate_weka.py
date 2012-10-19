@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import sys
 import getopt
+import collections
 
 """This script generetes the runtime metrics used for the STREAM system on recommender systems.
 It calculates the first two metrics propoed by Bao, Bergman and Thompson:
@@ -62,7 +63,7 @@ def GenerateCV(cv_file_format, input_file):
   cmd = ("./generate_cv.py -i %s, -o %s") % (input_file, cv_file_format)
   os.system(cmd)
 
-def GenerateTrainningRates(training_input, algorithms, item_attributes, user_attributes):
+def GenerateTrainingRatings(training_input, algorithms, item_attributes, user_attributes):
   """Given the training file input and the list of algorithms, creates a map[algorithm][user][movie] = rating, with the rating predictet by a algorithm
   """
   cv_file_format = "r"
@@ -109,29 +110,32 @@ def GenerateTrainningRates(training_input, algorithms, item_attributes, user_att
   
   return ratings
   
-def  GenerateRatings(file_format, algorithms):
-  """Generates a dictionary, with tuples as keys that maps[(user_id,movie_id, algorithm)]->rating
+def GenerateRatings(file_format, algorithms):
+  """Generates a dictionary, such that dict[algorithm][user][movie] = ratnig
     Receives an algorithm list and the file format used for the inputs
   """
-  ratings = {}
+  ratings = collections.defaultdict(lambda: collections.defaultdict(lambda: collections.defaultdict(lambda:0.0)))
   for algorithm in algorithms:
-    ratings[algorithm] = {}
     in_file = open(algorithm+ '_' + file_format, 'r')
     for line in in_file:
       linep     = line.split(" ")
       user_id   = linep[0]
       movie_id  = linep[1]
       rating    = linep[2]
-      ratings[algorithm][user_id] = {}
-      ratings[algorithm][user_id][movie_id]=rating
+      # TODO(arthur): Os ratings gerados aqui(e em outros lugares similares) são strings.
+      # Espero que isso não de problema em outro lugar.
+      ratings[algorithm][user_id][movie_id] = rating
   return ratings
 
 def GetRealRatings(train_file):
   """Generates a dictionary, in the format [user_id][movie_id]=rating, giving the actual ratings provided by a user for a item
   """
-  ratings = {}
+  ratings = collections.defauldict(lambda: collections.defaultdict(lambda: 0.0))
   infile = open(train_file, 'r')
   for line in infile:
+    # TODO(arthur): Nem todos os datasets tem esse separador. Um jeito de fazer
+    # é dar o split e ver se o length deu certo. Se tiver dado errado, tenta
+    # outro separador.
     linep = line.split("::")
     user_id = linep[0]
     movie_id = linep[1]
@@ -266,7 +270,7 @@ def main():
 
   #generates the rating predictions provided by the algorithms for the trainning file
   print "Generating rating predictions for the trainning file..."
-  cv_ratings = GenerateTrainningRates(train_file, algorithms, item_attributes, user_attributes)
+  cv_ratings = GenerateTrainingRatings(train_file, algorithms, item_attributes, user_attributes)
   print "Done!"
 
   #generates a dictionary[algorithm][user_id][movie_id] = rating, given the input files from the level-1 predictors
