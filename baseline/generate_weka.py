@@ -24,14 +24,12 @@ def Usage():
   print "./runtime_metrics.py -i /mnt/hd0/marcotcr/datasets/movielens1m/ratings.dat -o out.txt"
   sys.exit(2)
 
-global i = dict()
-global u = dict()
 
 
 def  GenerateRM1(filename):
 """ Generates a dictionary with the first RunTimeMetric, giving how many itens has been rated by a given user. map[user]->#
 """
-  i = dict()
+  i = dict{}
   in_file = open(filename, "r")
   for line in in_file:
     line = line.rstrip("\n")
@@ -47,26 +45,17 @@ def  GenerateRM1(filename):
 def GenerateRM2(filename):
 """Generates a dictionary with the second RunTimeMetric, giving how many times a given item has been rated map[item]->#
 """
-  u = dict()
+  u = dict{}
   in_file = open(filename, "r")
   for line in in_file:
     line = line.rstrip("\n")
-    linep = line.rstrip("\n")
+      linep = line.rstrip("\n")
     linep = map(int, linep)
     if linep[1] in u:
       u[linep[1]] += 1
     else:
       u[linep[1]] = 1
   return i
-
-def ListToString(l):
-  l = str(l)
-  l = l.strip("[")
-  l = l.strip("]")
-  l = l.replace("', '", ",")
-  l = l.strip("'")
-
-  return l
 
 def GenerateCV(cv_file_format, input_file):
   """Generates a 5-fold validation set for a file"""
@@ -109,10 +98,10 @@ def GenerateTrainningRates(training_input, algorithms, item_attributes, user_att
     for i in range(1, 6):
       fold_file = open(out_format+algorithm+str(i)+".output", 'r')
       for line in fold_file:
-        linep = line.split()
-        user_id = line[0]
-        movie_id = line[1]
-        rating = line[2]
+        linep     = line.split()
+        user_id   = line[0]
+        movie_id  = line[1]
+        rating    = line[2]
         ratings[algorithm][user_id] = {}
         ratings[algorithm][user_id][movie_id] = rating  
   
@@ -127,16 +116,56 @@ def  GenerateRatings(file_format, algorithms):
     ratings[algorithm] = {}
     in_file = open(algorithm+ '_' + file_format, 'r')
     for line in in_file:
-      linep = line.split(" ")
-      user_id = linep[0]
-      movie_id = linep[1]
-      rating = linep[2]
+      linep     = line.split(" ")
+      user_id   = linep[0]
+      movie_id  = linep[1]
+      rating    = linep[2]
       ratings[algorithm][user_id] = {}
       ratings[algorithm][user_id][movie_id]=rating
-def PrintWeka(out_file, algorithms, )
+  return ratings
 
+def GetRealRatings(train_file):
+"""Generates a dictionary, in the format [user_id][movie_id]=rating, giving the actual ratings provided by a user for a item
+"""
+  ratings = {}
+  infile = open(train_file, 'r')
+  for line in infile:
+    linep = line.split("::")
+    user_id = linep[0]
+    movie_id = linep[1]
+    rating = linep[2]
+    if user_id not in ratings:
+      ratings[user_id] = {}
+    if movie_id not in ratings[user_id]:
+      ratings[user_id][movie_id] = linep[2]
+  return ratings
 
-
+def PrintWeka(out_file, algorithms, predictions, ratings, metric1, metric2)
+  weka_file = open(out_file, 'w')
+  weka_file.write("@relation ratingPredictionForMovies\n")
+  weka_file.write("@attribute id string\n")
+  weka_file.write("@attribute metric1 numeric\n")
+  weka_file.write("@attribute metric2 numeric\n")
+  for algorithm in algorithms:
+    weka_file.write(("@attribute %s_algorithm numeric\n") % algorithm)
+  weka_file.write("@attribute class numeric\n")
+  
+  for user in ratings:
+    for movie im ratings[user]:
+      if user not in metric1:
+        metric1[user] = 0
+      if movie not in metric2:
+        metric2[movie] = 0
+      line = ''
+      line += '%s_%s,' %(user, movie)
+      line += '%s,'    %str(metric1[user])
+      line += '%s,'    %str(metric2[movie])
+      for algorithm in algorithms:
+        line += predictions[algorithm][user][movie]+','
+      line += str(rating[user][movie]) + '\n'
+      weka_file.write(line)
+  weka_file.close()
+  
 
 def main():
   try: 
@@ -145,10 +174,11 @@ def main():
     print str(err)
     Usage()
   
-  itens_rated_by_user = dict()
-  users_rated_item    = dict()
+  itens_rated_by_user = {}
+  users_rated_item    = {}
   ratings             = {}
   cv_ratings          = {}
+  predictions         = {}
   in_file_format      = None
   in_file             = None
   out_file            = None
@@ -191,13 +221,16 @@ def main():
   itens_rated_by_user = GenerateRM1(train_file)
   users_rated_item    = GenerateRM2(train_file)
 
-  #generates the rating provided by the algorithms for the trainning file
+  #generates the rating predictions provided by the algorithms for the trainning file
   cv_ratings = GenerateTrainningRates(train_file, algorithms, item_attributes, user_attributes)
 
-  #generates a tuple-indexed dictionary ratings[(user_id, movie_id, algorithm')] -> rating
-  ratings = GenerateRatings(in_file_format, algorithms)
+  #generates a dictionary[algorithm][user_id][movie_id] = rating, given the input files from the level-1 predictors
+  predictions = GenerateRatings(in_file_format, algorithms)
 
-  #generates Weka formatted output file
+  #generates a user's real rating
+  ratings = GetRealRatings(train_fle)
+  
+  #generates Weka formatted trainning file
   
 
 if __name__ == "__main__":
