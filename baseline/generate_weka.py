@@ -69,17 +69,29 @@ def ListToString(l):
   return l
 
 def  GenerateRatings(file_format, algorithms):
-  """Generates a dictionary, with tuples as keys that maps[(user_id,movie_id, algorithm)]->rating
-    Receives an algorithm list and the file format used for the inputs
+  """Generates a map[algorithm][user][movie]->rating
   """
   ratings = {}
   for algorithm in algorithms:
+    #open algorithm prediction file
     in_file = open(algorithm+ '_' + file_format, 'r')
     for line in in_file:
       linep = line.split(" ")
-      ratings[(int(linep[0]), int(linep[1]), algorithm)] = float(linep[2])
+      ratings[algorithm][linep[0]][linep[1]] = float(linep[2])
 
-def PrintWeka(out_file, algorithms, )
+def GetRealRatingsForTraining(train_file)
+"""
+  Generates a map[user][movie]-> rating with the real ratings, based on the trainning file provided
+"""
+  ratings = {}
+  in_file = open(train_file, "r")
+  #Generate the map with the given trainning set
+  for line in in_file:
+    linep = line.split("::")
+    ratings[int(linep[0])][int(linep[1])] = int(linep[2])
+  return ratings
+
+def PrintWekaTrain(ratings,  )
 
 
 
@@ -93,11 +105,11 @@ def main():
   
   itens_rated_by_user = dict()
   users_rated_item    = dict()
+  real_ratings        = {}
   ratings             = {}
-  percentage          = '0.80'
   in_file_format      = None
   in_file             = None
-  out_file            = None
+  out_file_format     = None
   out_folder          = None
   test_file           = None 
   train_file          = None
@@ -140,7 +152,10 @@ def main():
   #generates a tuple-indexed dictionary ratings[(user_id, movie_id, algorithm')] -> rating
   ratings = GenerateRatings(in_file_format, algorithms)
 
-  #generates Weka formatted output file
+  #generates a map with real ratings, based on the trainning file
+  real_ratings = GetRealRatingsForTraining(train_file)
+
+  #generates Weka formatted train file
   
 
 if __name__ == "__main__":

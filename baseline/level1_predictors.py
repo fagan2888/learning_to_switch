@@ -56,17 +56,17 @@ def main():
       train_file = value+"_train"
       test_file  = value+"_test"
     elif option == "-o":
-      output_file = value
+      output_folder = value
     elif option == "-i":
       item_attributes = value
     elif option == "-u":
       user_attributes = value
     else:
       assert False, "Option %s not avaiable" % option
-  if not train_file or not output_file:
+  if not train_file or not output_folder:
     Usage()
   for algorithm in algorithms:
-    
+    output_file = '%s/%s.output' % (output_folder, algorithm)
     if algorithm == "ItemAttributeKNN" or algorithm == "NaiveBayes":
       cmd = ('rating_prediction --training-file=%s --test-file=%s --recommender=%s --prediction-file=%s --item-attributes=%s --file-format=movielens_1m' % 
 (train_file, test_file, algorithm, output_file, item_attributes))
@@ -76,6 +76,7 @@ def main():
     else:
        cmd = ('rating_prediction --training-file=%s --test-file=%s --recommender=%s --prediction-file=%s --file-format=movielens_1m' % 
 (train_file, test_file, algorithm, output_file))
+    print cmd
     os.system(cmd)
 
 
