@@ -15,7 +15,7 @@ def Usage():
   print "%s" %sys.argv[0]
   print "Options:"
   print "-a (optional) List of algorithms to be used as level1-predictors. Default all"
-  print "-i (required) input file format for the algorithm predictions. Wil be used as <algorithm>_<input_format>"
+  print "-i (required) input file folder for the algorithm predictions. Wil be used as <value>/<algorithm>.output"
   print "-u (optional) user attributes file"
   print "-t (optional) item attributes file"
   print "-f (required) training file"
@@ -103,9 +103,9 @@ def GenerateTrainingRatings(training_input, algorithms, item_attributes, user_at
       fold_file = open(out_format+algorithm+str(i)+".output", 'r')
       for line in fold_file:
         linep     = line.split()
-        user_id   = line[0]
-        movie_id  = line[1]
-        rating    = line[2]
+        user_id   = linep[0]
+        movie_id  = linep[1]
+        rating    = linep[2]
         ratings[algorithm][int(user_id)] = {}
         ratings[algorithm][int(user_id)][int(movie_id)] = float(rating)
   
@@ -118,7 +118,7 @@ def GenerateRatings(file_format, algorithms):
   ratings = collections.defaultdict(lambda: collections.defaultdict(lambda: collections.defaultdict(lambda:0.0)))
   for algorithm in algorithms:
     #open algorithm prediction file
-    in_file = open(algorithm+ '_' + file_format, 'r')
+    in_file = open(file_format + algorithm + '.output', 'r')
     for line in in_file:
       linep = line.split(" ")
       ratings[algorithm][int(linep[0])][int(linep[1])] = float(linep[2])
@@ -268,6 +268,8 @@ def main():
       user_attributes = value
     elif option =="-t":
       item_attributes = value
+    elif option =="-i":
+      in_file_folder = value
     elif option == "-f":
       train_file = value
     elif option == "-e":
