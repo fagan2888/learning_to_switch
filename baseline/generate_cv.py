@@ -47,12 +47,12 @@ def main():
 #split the lines in 5 parts:
   folds=[data[x:x+int(test_size)] for x in xrange(0, len(data), int(test_size))]
 #for each part, creates a test with it and a train with the other parts
-  for i in range(1,6):
-    train_file = open(out_file+str(i)+"_train", 'w')
-    test_file  = open(out_file+str(i)+"_test", 'w')
+  for i in range(0,5):
+    train_file = open("./"+out_file+str(i+1)+"_train", 'w')
+    test_file  = open(out_file+str(i+1)+"_test", 'w')
     for line in folds[i]:
       train_file.write(line)
-    for j in range (1,6):
+    for j in range (0,5):
       if j!=i:
         for line in folds[j]:
           test_file.write(line)

@@ -31,12 +31,14 @@ def Usage():
   print "-u (optional) Location of the users attributes file"
   print "-w (required) Location of weka.jar file"
   print "Example Usage:"
-  print "./run_linear.py -a BiPolarSlopeOne,UserKNN,SVDPlusPlus -i /mnt/hd0/marcotcr/datasets/MovieLens1M/ratings.dat -o ./output/ -c 5 -t /mnt/hd0/marcotcr/datasets/MovieLens1M/moviesok.dat -u /mnt/hd0/marcotcr/datasets/MovieLens1M/usersok.dat"
+  print "./run_linear.py -a BiPolarSlopeOne,UserKNN,SVDPlusPlus -i /mnt/hd0/marcotcr/datasets/MovieLens1M/ratings.dat -o ./output/ -t /mnt/hd0/marcotcr/datasets/MovieLens1M/moviesok.dat -u /mnt/hd0/marcotcr/datasets/MovieLens1M/usersok.dat"
+  print ""
   sys.exit(2)
 
 def List2String(list):
-"""Generates a comma-separated string, based on a list
-  """
+  """Generates a comma-separated string, based on a list
+    """
+  list = str(list)
   list = list.replace("]","")
   list = list.replace("[","")
   list = list.replace("', '", ",")
@@ -44,9 +46,8 @@ def List2String(list):
   return list
 def main():
   try:
-    opts, args = getopt.getopt(sys.argv[1:], "i:o:")
-  except:
-    getopt.GetOptError, err:
+    opts, args = getopt.getopt(sys.argv[1:], "a:i:o:t:u:w:")
+  except getopt.GetoptError, err:
       print str(err)
       Usage()
 
@@ -55,6 +56,7 @@ def main():
   item_attributes_file = None
   user_attribures_file = None
   weka_path            = None
+  option               = None
   algorithms  = ['BiPolarSlopeOne', 'FactorWiseMatrixFactorization',
                'GlobalAverage', 'ItemAttributeKNN', 'ItemAverage', 'ItemKNN',
                'MatrixFactorization', 'SlopeOne', 'UserAttributeKNN', 'UserAverage',
@@ -63,6 +65,7 @@ def main():
                'LatentFeatureLogLinearModel', 'BiasedMatrixFactorization', 'SVDPlusPlus',
                'SigmoidSVDPlusPlus', 'SigmoidItemAsymmetricFactorModel',
                'SigmoidUserAsymmetricFactorModel', 'SigmoidCombinedAsymmetricFactorModel']
+
   for option, value in opts:
     if option == "-a":
       algorithms = value.split(",")
@@ -76,63 +79,69 @@ def main():
       user_attribures_file = value
     elif option == "-w":
       weka_path = value
-  else:
-    assert False, "Option %s is not avaiable" % option
-if not dataset or not out_folder or not weke:
+    else:
+      assert False, "Option is not avaiable"
+  if not dataset or not out_folder or not weka_path:
     Usage()
 
-
+  if not os.path.exists(out_folder):
+    os.makedirs(out_folder)
 #first things first. With the dataset, split it to cross-folding validation.
 #They will be generated at <output>/lvl1cv/r<nth-fold>.<test|train>
-
-  level1_cross_validation_folder = "%s/lvl1cv/r"
+  if not os.path.exists(out_folder+"lvl1cv"):
+    os.makedirs(out_folder+"lvl1cv")
+  level1_cross_validation_folder = (("%slvl1cv/r") % (out_folder))
   cmd = (("./generate_cv.py -i %s -o %s") % (dataset, level1_cross_validation_folder))
   print cmd
   os.system(cmd)
 
 #Now, with the dataset in a 5 fold fashion, run all the level-1 predictors required. Using MyMediaLite.
 
+
   if len(algorithms) == 22:
     for i in range(1,6):
       in_file = level1_cross_validation_folder+str(i)
-      out_file = (("%s/lvl1out/r%d") % (out_folder, i))
+      out_file = (("%slvl1out/r%d") % (out_folder, i))
+      
+      if not os.path.exists(out_file):
+        os.makedirs(out_file)
       cmd = (("./level1_predictors.py -t %s -o %s -i %s -u %s") % (in_file, out_file, item_attributes_file, user_attribures_file))
       print cmd
       os.system(cmd)
   else:
     for i in range(1,6):
       in_file = level1_cross_validation_folder+str(i)
-      out_file = (("%s/lvl1out/r%d") % (out_folder, i))
-      cmd = (("./level1_predictors.py -a %s -t %s -o %s -i %s -u %s") % (List2String(algorithms) in_file, out_file, item_attributes_file, user_attribures_file))
-        print cmd
-        os.system(cmd)
-
+      out_file = (("%slvl1out/r%d") % (out_folder, i))
+      if not os.path.exists(out_file):
+        os.makedirs(out_file)
+      cmd = (("./level1_predictors.py -a %s -t %s -o %s -i %s -u %s") % (List2String(algorithms), in_file, out_file, item_attributes_file, user_attribures_file))
+      print cmd
+      os.system(cmd)
 #Now we are done with the level-1 predictors. Next steps are: Generate the RunTimeMetrics and the input files for weka:
   for i in range (1,6):
-    in_file       = (("%s/lvl1out/r%d/") % (out_folder, i))
+    in_file       = (("%slvl1out/r%d/") % (out_folder, i))
     train_file    = (("%s%d_train")%(level1_cross_validation_folder, i))
     test_file     = (("%s%d_test")%(level1_cross_validation_folder, i))
-    out_file      = (("%s/wekaout%d")%(out_folder, i))
+    out_file      = (("%swekaout%d")%(out_folder, i))
     if len(algorithms) == 22:
       cmd = ("./generate_weka.py -i %s -u %s -t %s -f %s -e %s -o %s")%(in_file, user_attribures_file, item_attributes_file, train_file, test_file, out_file)
-      print cmd
-      os.system(cmd)
-    
+
     else:
       cmd = ("./generate_weka.py -a %s -i %s -u %s -t %s -f %s -e %s -o %s")%(List2String(algorithms), in_file, user_attribures_file, item_attributes_file, train_file, test_file, out_file)
-      print cmd
-      os.system(cmd)
+    print cmd
+    os.system(cmd)
 
 #Now, run linear regression usint weka output files
   for i in range(1,6):
-    test_file  = (("%s/wekaout%d/test.arff") %(out_folder, i))
-    train_file = (("%s/wekaout%d/train.arff")% (out_folder, i))
+    test_file  = (("%swekaout%dtest.arff") %(out_folder, i))
+    train_file = (("%swekaout%dtrain.arff")% (out_folder, i))
   cmd = (("java -Xmx2000m -cp %s weka.classifiers.meta.FilteredClassifier -F weka.filters.unsupervised.attribute.RemoveType -W weka.classifiers.functions.LinearRegression -t %s - T %s -i -k -p 1")%(weka_path, train_file, test_file))
   print cmd
   os.system(cmd)
 
 
-
+if __name__ == "__main__":
+  main()
 
 
 
