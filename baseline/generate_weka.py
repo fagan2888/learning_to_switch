@@ -36,7 +36,9 @@ def GenerateRM1(filename):
   for line in in_file:
     line = line.rstrip("\n")
     linep = line.split("::")
-    linep = map(int, linep)
+    linep[0] = int(linep[0])
+    linep[1] = int(linep[1])
+    linep[2] = float(linep[2])
     if linep[0] in itens_rated:
       itens_rated[linep[0]] += 1
     else:
@@ -52,8 +54,11 @@ def GenerateRM2(filename):
   for line in in_file:
     linep = line.rstrip("\n")
     linep = linep.split("::")
-    linep = map(int, linep)
-    if linep[1] in user_rated:
+    linep[0] = int(linep[0])
+    linep[1] = int(linep[1])
+    linep[2] = float(linep[2])
+    
+   if linep[1] in user_rated:
       user_rated[linep[1]] += 1
     else:
       user_rated[linep[1]] = 1
@@ -132,7 +137,7 @@ def GetRealRatingsForTraining(train_file):
   for line in in_file:
     linep = line.split("::")
     print linep
-    ratings[int(linep[0])][int(linep[1])] = int(linep[2])
+    ratings[int(linep[0])][int(linep[1])] = float(linep[2])
   return ratings
 
       # TODO(arthur): Os ratings gerados aqui(e em outros lugares similares) sao strings.
