@@ -51,11 +51,11 @@ def main():
     train_file = open("./"+out_file+str(i+1)+"_train", 'w')
     test_file  = open(out_file+str(i+1)+"_test", 'w')
     for line in folds[i]:
-      train_file.write(line)
+      test_file.write(line)
     for j in range (0,5):
       if j!=i:
         for line in folds[j]:
-          test_file.write(line)
+          train_file.write(line)
 
 
 if __name__ == '__main__':

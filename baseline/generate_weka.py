@@ -79,7 +79,7 @@ def GenerateTrainingRatings(training_input, algorithms, item_attributes, user_at
       test_file  = cv_file_format+str(i)+"_train"
       out_file   = out_format+algorithm+str(i)+".output"
        
-      #print "Running for algorithm %s" %(algorithm)
+      print "Running for algorithm %s" %(algorithm)
       #run algorithms
       if algorithm == "ItemAttributeKNN" or algorithm == "NaiveBayes":
         cmd = ('rating_prediction --training-file=%s --test-file=%s --recommender=%s --prediction-file=%s --item-attributes=%s --file-format=movielens_1m' %
@@ -120,7 +120,7 @@ def GenerateRatings(file_format, algorithms):
     for line in in_file:
       linep = line.split()
       ratings[algorithm][int(linep[0])][int(linep[1])] = float(linep[2])
-    return ratings
+  return ratings
 
 def GetRealRatingsForTraining(train_file):
   """
@@ -205,28 +205,28 @@ def PrintWekaTest(out_file, algorithms, predictions, ratings, metric1, metric2):
         seen[user] = {}
       for movie in predictions[algorithm][user]:
         if movie in seen[user]:
-          continue  
+          continue
         line = ''
-        line += '%s_%s,' %(str(user), str(movie))
+        line += '%s_%s,' %(user, movie)
         if user not in metric1:
           metric1[user] = 0
         if movie not in metric2:
           metric2[movie] = 0
         line += '%s,'    %str(metric1[user])
         line += '%s,'    %str(metric2[movie])
-      for algorithm in algorithms:
-        if movie not in predictions[algorithm][user]:
-          predictions[algorithn][user] = "?"
-        line += str(predictions[algorithm][user][movie])+','
-      if movie not in ratings[user]:
-        line += ("0\n")
-      else:
-        if float(rating[user][movie]) > 4:
-          line+="1\n"
+        for algorithm in algorithms:
+          if movie not in predictions[algorithm][user]:
+            predictions[algorithm][user] = "?"
+          line += str(predictions[algorithm][user][movie])+','
+        if movie not in ratings[user]:
+          line += '0\n'
         else:
-          line+"0\n"
-      weka_file.write(line)
-      seen[user][movie] = 1
+          if float(rating[user][movie]) > 4:
+            line+="1\n"
+          else:
+            line+"0\n"
+        weka_file.write(line)
+        seen[user][movie] = 1
   weka_file.close()
 
 def main():
@@ -250,7 +250,7 @@ def main():
   user_attributes     = None
   item_attributes     = None
 
-  algorithms  = ['BiPolarSlopeOne', 'FactorWiseMatrixFactorization',
+  algorithms = ['BiPolarSlopeOne', 'FactorWiseMatrixFactorization',
   'GlobalAverage', 'ItemAttributeKNN', 'ItemAverage', 'ItemKNN',
   'MatrixFactorization', 'SlopeOne', 'UserAttributeKNN', 'UserAverage',
   'UserItemBaseline', 'UserKNN', 'TimeAwareBaseline',
@@ -286,23 +286,24 @@ def main():
   print "Done!"
 
   #generates the rating predictions provided by the algorithms for the trainning file
-  print "Generating rating predictions for the trainning file..."
+  print  "Generating rating predictions for the trainning file..."
   cv_ratings = GenerateTrainingRatings(train_file, algorithms, item_attributes, user_attributes)
   print "Done!"
 
   #generates a dictionary[algorithm][user_id][movie_id] = rating, given the input files from the level-1 predictors
   print "Getting the predictions from level-1 predictors"
   predictions = GenerateRatings(in_file_folder, algorithms)
+  print len(predictions) 
   print "Done!"
   
   #generates a user's real rating
   print "Getting real ratings"
-  ratings = GetRealRatings(train_file)
+  ratings = GetRealRatings(test_file)
   print "Done!"
 
   #generates Weka formatted trainning file
   print "Writing trainning file"
-  train_out = "%strain_weka.arff" % (out_file)
+  train_out = "%strain.arff" % (out_file)
   PrintWeka(train_out, algorithms, cv_ratings, ratings, itens_rated_by_user, users_rated_item)
   print "Done!"
 
