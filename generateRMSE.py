@@ -18,7 +18,7 @@ def GetRMSE(algorithm, ratings, predictions):
   MSE = 0
   for user in predictions:
     for movie in predictions[user]:
-      MSE+= pow((float(predictions[user][movie][algorithm]) -float(ratings[user][movie])),2)
+      MSE+= (float(predictions[user][movie][algorithm])-(float(ratings[user][movie])))**2
       length += 1
   return math.sqrt(MSE/length)
 
@@ -39,9 +39,6 @@ def CreateMapping(file_format, algorithms):
   return predictions
 
 
-
-
-
 def CreateMappingPerFold(file_format, algorithms, fold):
   predictions = collections.defaultdict(lambda: collections.defaultdict(lambda: collections.defaultdict(lambda: 0.0)))
   for algorithm in algorithms:
@@ -58,11 +55,10 @@ def CreateMappingPerFold(file_format, algorithms, fold):
 
 def GetRealRatings(test_file_format):
   ratings = collections.defaultdict(lambda: collections.defaultdict(lambda: 0.0))
-  for i in range (1,6):
-    test_file = open("%s%d_test"%(test_file_format,i), 'r')
-    for line in test_file:
-      linep = line.split("::")
-      ratings[linep[0]][linep[1]] = float(linep[2])
+  test_file = open(test_file_format, 'r')
+  for line in test_file:
+    linep = line.split("::")
+    ratings[linep[0]][linep[1]] = float(linep[2])
   return ratings
 
 
@@ -76,14 +72,14 @@ def GetRealRatingsPerFold(test_file):
 
 def main():
   try:
-    opts, args = getopt.getopt(sys.argv[1:], "i:a:t:")
+    opts, args = getopt.getopt(sys.argv[1:], "i:a:t:r:")
   except getopt.GetoptError, err:
     print (err)
     print "Something is missing"
     sys.exit(2)
 
   in_folder = None
-  test_folder = None
+  train_folder = None
   algorithms  = ['BiPolarSlopeOne', 'FactorWiseMatrixFactorization',
                 'GlobalAverage', 'ItemAttributeKNN', 'ItemAverage', 'ItemKNN',
                 'MatrixFactorization', 'SlopeOne', 'UserAttributeKNN' , 'UserAverage', 
@@ -97,12 +93,15 @@ def main():
     elif option == "-i":
       in_folder = value
     elif option == "-t":
-      test_folder = value
+     train_folder = value
+    elif option == "-r":
+      ratings_file = value
     else:
       assert False, "option not avaiable"
-  if not in_folder or not test_folder:
+  if not in_folder or not train_folder:
     print "Lacking input or test folder. Where are the predictions?"
-    
+    sys.exit(2)
+   
   predictions = {}
   out_file = open("RMSE.csv", 'w')
   for algorithm in algorithms:  
@@ -110,7 +109,7 @@ def main():
   out_file.write('\n')
   for i in range(1,6):
     predictions = CreateMappingPerFold(in_folder, algorithms, i)
-    ratings = GetRealRatingsPerFold(("%sr%d_test") % (test_folder, i))
+    ratings = GetRealRatingsPerFold(("%sr%d.test") % (train_folder, i))
     out_file.write("fold_" + str(i) + ",")
     print         ("fold_" + str(i) + ",")
     for algorithm in algorithms:
@@ -119,7 +118,7 @@ def main():
   #print RMSEs for all folds cobined
   
   predictions = CreateMapping(in_folder, algorithms)
-  ratings = GetRealRatings(test_folder+"r")
+  ratings = GetRealRatings(ratings_file)
   out_file.write("Combined,")
   print         ("Combined,")
   for algorithm in algorithms:
