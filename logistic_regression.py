@@ -23,6 +23,8 @@ def Usage():
   print "Options:"
   print "-t (required) train file"
   print "-e (required) test file"
+  print "-n (required) Number of algorithms to be tested)"
+  print "-a (required) parameter alpha for gradient descent"
   sys.exit(2)
 
 def Sigmoid(theta, x):
@@ -50,16 +52,13 @@ def main():
   train_file  = None
   X           = None
   Y           = array([])
-  theta1      = None 
-  theta2      = None 
-  theta3      = None 
-  theta4      = None 
-  theta5      = None 
+  theta       = []
   i           = 0
   alpha       = None
   n           = None
+  niter       = 30
   try:
-    opts, args = getopt.getopt(sys.argv[1:], "t:e:")
+    opts, args = getopt.getopt(sys.argv[1:], "t:e:n:a:")
   except getopt.GetoptError, err:
     print str(err)
     Usage()
@@ -77,10 +76,7 @@ def main():
     else:
       X = vstack((X, array(linep)))
       
-  #Next step is to train the model with this dataset. We have X (attributes), Y (classification) and must find theta (parameters). Since it is a classification problem, we should run it five times. One for each class of rating (1, 2, 3, 4 or 5 stars)
-  theta1 = GradientDescent(n, alpha, X, Y, 1)
-  theta2 = GradientDescent(n, alpha, X, Y, 2)
-  theta3 = GradientDescent(n, alpha, X, Y, 3)
-  theta4 = GradientDescent(n, alpha, X, Y, 4)
-  theta5 = GradientDescent(n, alpha, X, Y, 5)
+  #train for each possible class. When testing, will select the one that fits better.
+  for i in range (1, n):
+    theta[i] = GradientDescent(niter, alpha, X, Y, i)
 
