@@ -23,7 +23,6 @@ def Usage():
   print "Options:"
   print "-t (required) train file"
   print "-e (required) test file"
-  print "-n (required) Number of algorithms to be tested)"
   print "-a (required) parameter alpha for gradient descent"
   sys.exit(2)
 
@@ -58,7 +57,7 @@ def main():
   n           = None
   niter       = 30
   try:
-    opts, args = getopt.getopt(sys.argv[1:], "t:e:n:a:")
+    opts, args = getopt.getopt(sys.argv[1:], "t:e:a:")
   except getopt.GetoptError, err:
     print str(err)
     Usage()
@@ -72,7 +71,8 @@ def main():
     if i == 0:
       #make the list into an numpy-formatted array
       X = array(linep)
-      i += 1
+      n = linep.size
+      i = 1
     else:
       X = vstack((X, array(linep)))
       
