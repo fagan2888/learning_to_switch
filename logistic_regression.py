@@ -16,6 +16,7 @@ import re
 
 from numpy import *
 from numpy import e as npe
+from scipy.optimize import fmin_bfgs
 
 def Usage():
   print "%s" %sys.argv[0]
@@ -37,9 +38,20 @@ def IsClass(x, cl):
 def Sigmoid(x):
   return 1/(1+power(npe,((-1)*x)))
 
-def Cost(tehta, X, Y, l, cl):
+def map_feature(x1, x2):
+  x1.shape = (x1.size,1)
+  x2.shape = (x2.size, 1)
+  degree = 6
+  out = ones(shape=(x1[:,0].size, 1))
+  m,n=out.shape
+  for i in range(1, degree+1):
+    for j in range(i+1):
+      r = (x1 ** (i-j)) * (x2 **j)
+      out - append(out, r, axis = 1)
+  return out
 
-  y = map(IsClass, Y, cl)
+def Cost(theta, X, Y):
+   
   h = sigmoid(X.dot(theta))
   thetaR = theta[1:, 0]
   
@@ -58,34 +70,6 @@ def Cost(tehta, X, Y, l, cl):
   out[:, 1:] = grad
 
   return J.flatten(), out.T.flatten()
-
-def addx0feat(X):
-  rows = shape(X)[0]
-  x0 = ones((rows,1), 'float')
-  return concatenate((x0,X),1)
-
-def GD(X,Y):
-  i = 1
-  derror = sys.maxint
-  error = 0
-  
-  featnum = shape(X)[1]
-  w = zeros((featnum+1,1), 'float')
-
-  X_ext = addx0feat(X)
-  step = 0.0001
-  dthresh = 0.1
-  
-  while derror>dthresh:
-    diff = Y-dot(X_ext, w)
-
-    for j in range(0, shape(X_ext)[1]):
-      w[j] = w[j] + step * sum(diff*X_ext[:,j:j+1])
-    perror = sum(diff**2)/shape(X)[0]
-    derror = abs(error-perror)
-    error = perror
-
-  return w
 
 
 def GradientDescent(n, alpha, X, Y, cl):
@@ -107,10 +91,6 @@ def GradientDescent(n, alpha, X, Y, cl):
     theta = theta - alpha * (1/m)*partial
   return theta
 
-def Normalize(X, mean, std):
-  for i in range (0, shape(X)[1]):
-    X[:,i] = (X[:,i]-mean[i])/std[i]
-  return X
 
 def main():
   test_file   = None
@@ -119,12 +99,9 @@ def main():
   Y           = []
   theta       = []
   i           = 0
-  alpha       = None
-  n           = None
-  niter       = 30
   separator   = " "
   try:
-    opts, args = getopt.getopt(sys.argv[1:], "t:e:a:n:s:")
+    opts, args = getopt.getopt(sys.argv[1:], "t:e:n:s:")
   except getopt.GetoptError, err:
     print str(err)
     Usage()
@@ -134,8 +111,6 @@ def main():
       train_file = value
     elif option == '-e':
       test_file = value
-    elif option == '-a':
-      alpha = float(value)
     elif option == '-n':
       n = int(value)
     elif option == '-s':
@@ -158,15 +133,21 @@ def main():
     else:
       X = vstack((X, array(linep)))
   Y = array(Y)
+  #feature mapping
+  m,n = X.shape
+  Y.shape=(m,1)
+  it = map_feature(X[:,0], X[:,1])
+  initial_theta = zeros(shape = (it.shape[1],1))
 
-  #get mean and standart deviation for each vector
-  mean_X = X.mean(0)
-  std_X = X.std(0)
-  X = Normalize(X, mean_X, std_X)
+  cost, grad = Cost(initial_theta, it, y)
+  
+  def decorated_cost(theta):
+    return Cost(theta, it, y)
   
   #train for each possible class. When testing, will select the one that fits better.
   for i in range(0, n):
-    theta.append(GD(X,Y))
+    y = map(IsClass, Y, i)
+    theta.append(fmin_bfgs(decorated_cost, initial_theta, maxfun=400))
   for i in range(0,n):
     print theta[i]
   #Test for every entrance on test file -  get the probability for each trainned model
