@@ -58,7 +58,7 @@ def GenerateRM2(filename):
     linep[1] = int(linep[1])
     linep[2] = float(linep[2])
     
-   if linep[1] in user_rated:
+    if linep[1] in user_rated:
       user_rated[linep[1]] += 1
     else:
       user_rated[linep[1]] = 1
@@ -286,8 +286,8 @@ def main():
 
   #Defines the Runtime metrics to be used, as dictionaries
   print "Generating the runtime metrics..."
-  itens_rated_by_user = GenerateRM1(train_file)
-  users_rated_item    = GenerateRM2(train_file)
+  #itens_rated_by_user = GenerateRM1(train_file)
+  #users_rated_item    = GenerateRM2(train_file)
   print "Done!"
 
   #generates the rating predictions provided by the algorithms for the trainning file
@@ -295,10 +295,10 @@ def main():
   cv_ratings = GenerateTrainingRatings(train_file, algorithms, item_attributes, user_attributes)
   print "Done!"
 
+  sys.exit(2)
   #generates a dictionary[algorithm][user_id][movie_id] = rating, given the input files from the level-1 predictors
   print "Getting the predictions from level-1 predictors"
   predictions = GenerateRatings(in_file_folder, algorithms)
-  print len(predictions) 
   print "Done!"
   
   #generates a user's real rating

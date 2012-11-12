@@ -138,7 +138,7 @@ def main():
     train_file = (("%swekaout%dtrain.arff")% (out_folder, i))
     cmd = (("java -Xmx2000m -cp %s weka.classifiers.meta.FilteredClassifier -F weka.filters.unsupervised.attribute.RemoveType -W weka.classifiers.functions.LinearRegression -t %s -T %s -i -k -p 1 > streamout%d.txt")%(weka_path, train_file, test_file, i))
     print cmd
-    os.system(cmd)
+    #os.system(cmd)
 
 
 if __name__ == "__main__":
