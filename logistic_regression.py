@@ -23,73 +23,58 @@ def Usage():
   print "Options:"
   print "-t (required) train file"
   print "-e (required) test file"
-  print "-a (required) parameter alpha for gradient descent"
   print "-n (required) Number of possible classes"
   print "-s (optional) Data separator for test and train files. default as space"
   sys.exit(2)
 
-def IsClass(x, cl):
-  if x == cl:
-    x = 1
-  else:
-    x = 0
-  return x
-
 def Sigmoid(x):
   return 1/(1+power(npe,((-1)*x)))
 
-def map_feature(x1, x2):
-  x1.shape = (x1.size,1)
-  x2.shape = (x2.size, 1)
-  degree = 6
-  out = ones(shape=(x1[:,0].size, 1))
-  m,n=out.shape
-  for i in range(1, degree+1):
-    for j in range(i+1):
-      r = (x1 ** (i-j)) * (x2 **j)
-      out - append(out, r, axis = 1)
-  return out
+
+def IsClass(Y, n):
+  """Look the vector for a given class, in order to discretize it. If Y[i] == n Y[i] = 1.
+  """
+  for i in range (size(Y)):
+    if Y[i] == n:
+      Y[i] = 1
+    else:
+      Y[i] = 0
+  return Y
+
+def Cost2(theta, X, Y):
+  m,n = X.shape
+  h = Sigmoid(X.dot(theta))
+  thetaR = theta
+  return (1.0/m) * ((-Y.T.dot(log(h))) - ((1 - Y.T).dot(log(1.0-h)))) \
+        + (1/(2.0*m)) * (thetaR.T.dot(thetaR))
 
 def Cost(theta, X, Y):
-   
-  h = sigmoid(X.dot(theta))
+  print "COST"
+  print "******************************************"
+  h = Sigmoid(X.dot(theta))
   thetaR = theta[1:, 0]
-  
+  m, n = X.shape
+
   J = (1.0 /m) * ((-Y.T.dot(log(h))) - ((1-Y.T).dot(log(1.0-h)))) \
        + (1/(2.0 *m)) * (thetaR.T.dot(thetaR))
-  delta = h-y
+  print J
+  delta = h-Y
   sumdelta = delta.T.dot(X[:,1])
-  gradl = (1.0/m) * sumdelta
-
-  XR = X[: 1:x.shape[1]]
+  grad1 = (1.0/m) * sumdelta
+  XR = X[: 1:X.shape[1]]
   sumdelta = delta.T.dot(XR)
-  grad = (1.0/m) * (sumdelta + 1 *thetaR)
+  
+  grad = (1.0/m) * (sumdelta + thetaR)
   
   out = zeros(shape=(grad.shape[0], grad.shape[1] + 1))
-  out[:, 0] = gradl
+  out[:, 0] = grad1
   out[:, 1:] = grad
 
   return J.flatten(), out.T.flatten()
 
 
-def GradientDescent(n, alpha, X, Y, cl):
-  """
-  Finds theta parameters so we can find the best thetas as parameters for the regression
-  """
-  m = size(Y)
-  partial = 0
-  
-  theta = zeros(size(X[1]+1), 'float')
-
-  for i in range (0, n):
-    for j in range(0, size(Y)):
-      if Y[j] == cl:
-        y = 1
-      else:
-        y = 0
-      partial += (Sigmoid(dot (theta,X[j])) - y) * X[j]
-    theta = theta - alpha * (1/m)*partial
-  return theta
+def decorated_cost(theta, y, X):
+  return Cost2(theta, X, y)
 
 
 def main():
@@ -99,7 +84,7 @@ def main():
   Y           = []
   theta       = []
   i           = 0
-  separator   = " "
+  
   try:
     opts, args = getopt.getopt(sys.argv[1:], "t:e:n:s:")
   except getopt.GetoptError, err:
@@ -117,7 +102,7 @@ def main():
       separator = value
     else:
       assert False, "Option %s not avaiable" %option
-  if not test_file or not train_file or not alpha or not n:
+  if not test_file or not train_file or not n:
     Usage()
   #read the train file
   train_file = open(train_file, "r")
@@ -133,21 +118,17 @@ def main():
     else:
       X = vstack((X, array(linep)))
   Y = array(Y)
-  #feature mapping
   m,n = X.shape
   Y.shape=(m,1)
-  it = map_feature(X[:,0], X[:,1])
-  initial_theta = zeros(shape = (it.shape[1],1))
+  initial_theta = zeros(shape = (X.shape[1],1))
+    
+  #def decorated_cost(theta, y):
+   # return Cost2(theta, X, y)
 
-  cost, grad = Cost(initial_theta, it, y)
-  
-  def decorated_cost(theta):
-    return Cost(theta, it, y)
-  
   #train for each possible class. When testing, will select the one that fits better.
   for i in range(0, n):
-    y = map(IsClass, Y, i)
-    theta.append(fmin_bfgs(decorated_cost, initial_theta, maxfun=400))
+    y = IsClass(Y, i)
+    theta.append(fmin_bfgs(decorated_cost, initial_theta, args=(y, X)))
   for i in range(0,n):
     print theta[i]
   #Test for every entrance on test file -  get the probability for each trainned model
