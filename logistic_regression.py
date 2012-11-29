@@ -13,10 +13,11 @@ import getopt
 import os
 import collections
 import re
+import math
 
 from numpy import *
 from numpy import e as npe
-from scipy.optimize import fmin
+from scipy.optimize import fmin_bfgs, fmin, minimize, leastsq
 
 def Usage():
   print "%s" %sys.argv[0]
@@ -53,32 +54,52 @@ def IsClass(Y, n):
   return Y
 
 def Cost2(theta, X, Y):
-  m = X.shape[0]
+  m = Y.size
+  print m
+  Y = Y.flatten()
+  for i in range(X.shape[0]):
+    X[i]=X[i].flatten()
+  
+  print theta
+  print X.dot(theta.T)
   h = Sigmoid(X.dot(theta.T))
-  thetaR = theta
-  J = ((1.0/m) * ((-Y.T.dot(log(h))) - ((1 - Y.T).dot(log(1.0-h))))).flatten()
-  print "COST = "
+
+  print "h="
+  print h
+  
+  print"PARAMS----------------------------------"
+  
+  a = (-Y.T.dot(log(h)))
+  b = ((1.0 - Y.T).dot(log(1.0-h)))
+  if math.isnan(b):
+    b = -999999
+  print theta
+  print a
+  print b
+  print a-b
+  J =  (a-b)/m
   print J
-  return J
+  #J = ((-Y.T.dot(log(h))) - ((1.0 - Y.T).dot(log(1.0-h))))
+  print "---------------"
+  print J/m
+  print "---------------"
+  return J/m
+
 
 def predict(theta, X):
   m, n = X.shape
   p = zeros(shape=(m,1))
-
   h = Sigmoid(X.dot(theta.T))
-
   print h
   for i in range (0, h.shape[0]):
     if h[i] >= 0.5:
-      h[i] = 1
+      h[i] = int(1)
     else:
-      h[i] = 0
+      h[i] = int(0)
 
+  map(int, h)
+  print h
   return h 
-
-
-def decorated_cost(theta, y, X):
-  return Cost2(theta, X, y)
 
 
 def main():
@@ -122,18 +143,26 @@ def main():
       i = 1
     else:
       X = vstack((X, array(linep)))
+  
+  X = array(X)
   Y = array(Y)
   m,n = X.shape
+  intercept=ones(m)
+  X = column_stack((intercept, X))
+  print X
   Y.shape=(m,1)
-  initial_theta = zeros(shape = (X.shape[1],1))
-  
-  print Y
-
-  #Simple test:
-  theta = fmin(decorated_cost, initial_theta, args = (Y,X))
+  initial_theta = zeros(n+1)
+  print "initial_theta:"
+  initial_theta.shape = (n+1,1)
+  print initial_theta
+  print "Shapes:"
+  print initial_theta.shape
+  print X.shape
+  print Y.shape
+  theta = fmin_bfgs(Cost2,initial_theta.T, args = (X,Y))
   print theta
   print predict(theta, X)
-
+  print Y.T[0]
   #train for each possible class. When testing, will select the one that fits better.
   #for i in range(0, n):
     #print "TRAINNED"
@@ -159,9 +188,10 @@ def main():
   m,n = Xt.shape
   result.shape=(m,1)
   #prediction time:
-  p = predict(theta, Xt)
+  p = predict(theta.T, Xt)
+  print "*************************************"
   print p
-  print result
+  print result.T
 
 
 if __name__ == '__main__':
